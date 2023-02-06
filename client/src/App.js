@@ -1,4 +1,5 @@
 import './App.css';
+import Header from './components/Header.jsx'
 
 import { useApi } from './hooks/use-api';
 
@@ -7,6 +8,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <header className="App-header">
         <p>
           {response}

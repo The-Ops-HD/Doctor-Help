@@ -14,6 +14,24 @@ const PatientSchema = new mongoose.Schema({
 		required: [true],
     minLength: [3],
 	},
+  Age: {
+    type: Number,
+    required: [true],
+  },Sex: {
+    type: String,
+    required: [true],
+  },
+  ZipCode: {
+    type: Number,
+    required: [true],
+  },
+  bmi: {
+    type: Number,
+    required: [true],
+  },imageURL: {
+    type : String,
+  }
+
 }, {timestamps : true})
 
 

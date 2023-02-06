@@ -9,6 +9,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  border-bottom: 2px solid #000000;
 }
 
 .title {
@@ -24,7 +25,7 @@ body {
 .button {
   background-color: #659299;
   color: #f5f5f5;
-  border: #f5f5f5 solid;
+  border: 2px solid #000000 ;
   cursor: pointer;
   margin-right: 2rem;
   border-radius: 16px;
@@ -36,26 +37,35 @@ body {
   background-color: #3b5559;
 }
 
- div #examTableContainer{
-  margin-top: 5%;
-  margin-left: 23%;
-  margin-right: 17%;
+#examTableContainer {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
 }
 
-#examTableContainer table{
+.examTable {
   text-align: center;
+  width: 85vw;
+  border-collapse: collapse;
 }
 
-#examTableHeader{
-  border: 2px;
-  border-color: #97DBE6;
-}
-
-#examTableBody{
-  background-color: #e9f3c3;
-
-}
-
-.examTable #examTableHeader{
+#examTableHeader {
   background-color: #97DBE6;
+}
+
+#examTableHeader > tr > th {
+  border: 2px solid #000000;
+}
+
+#examTableHeader::after {
+  content: "";
+}
+
+#examTableBody {
+  background-color: #e9f3c3;
+  border-style: hidden;
+}
+
+#examTableBody > tr > td {
+  border: 1px solid #808080;
 }

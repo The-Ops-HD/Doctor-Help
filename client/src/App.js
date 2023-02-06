@@ -1,4 +1,5 @@
 import './App.css';
+import ExamTable from './components/ExamTable';
 import Header from './components/Header.jsx'
 
 import { useApi } from './hooks/use-api';
@@ -9,6 +10,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <ExamTable/>
       <header className="App-header">
         <p>
           {response}

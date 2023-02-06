@@ -34,3 +34,27 @@ body {
 .button:hover {
   background-color: #3b5559;
 }
+
+ div #examTableContainer{
+  margin-top: 5%;
+  margin-left: 23%;
+  margin-right: 17%;
+}
+
+#examTableContainer table{
+  text-align: center;
+}
+
+#examTableHeader{
+  border: 2px;
+  border-color: #97DBE6;
+}
+
+#examTableBody{
+  background-color: #e9f3c3;
+
+}
+
+.examTable #examTableHeader{
+  background-color: #97DBE6;
+}

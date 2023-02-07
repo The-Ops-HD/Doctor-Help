@@ -1,21 +1,71 @@
-.App {
-  text-align: center;
+body {
+  background-color: #f5f5f5;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  min-height: 100vh;
+#header-container {
+  background-image: linear-gradient(to right, #8fcfd9, #ddeba4);
+  height: 75px;
+  width: 100vmax;
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  border-bottom: 2px solid #000000;
 }
 
-.App-link {
-  color: #61dafb;
+.title {
+  font-family: "sharp-sans-bold", "fallback-font", Arial, sans-serif;
+  margin-left: 2rem;
+  color: #f5f5f5;
+  height: 75px;
+  vertical-align: middle;
+  font-size: 60px;
+  text-shadow: 0px 3px 2px #808080;
+}
+
+.button {
+  background-color: #659299;
+  color: #f5f5f5;
+  border: 2px solid #000000 ;
+  cursor: pointer;
+  margin-right: 2rem;
+  border-radius: 16px;
+  height: 70px;
+  width: 120px;
+}
+
+.button:hover {
+  background-color: #3b5559;
+}
+
+#examTableContainer {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.examTable {
+  text-align: center;
+  width: 85vw;
+  border-collapse: collapse;
+}
+
+#examTableHeader {
+  background-color: #97DBE6;
+}
+
+#examTableHeader > tr > th {
+  border: 2px solid #000000;
+}
+
+#examTableHeader::after {
+  content: "";
+}
+
+#examTableBody {
+  background-color: #e9f3c3;
+  border-style: hidden;
+}
+
+#examTableBody > tr > td {
+  border: 1px solid #808080;
 }

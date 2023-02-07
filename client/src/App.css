@@ -42,14 +42,14 @@ body {
 }
 
 #examTableContainer {
-  margin-top: 4rem;
+  margin-top: 2rem;
   display: flex;
   justify-content: center;
 }
 
 .examTable {
   text-align: center;
-  width: 85vw;
+  width: 75vw;
   border-collapse: collapse;
 }
 
@@ -58,7 +58,16 @@ body {
 }
 
 #examTableHeader > tr > th {
-  border: 2px solid #000000;
+  border: 1px solid #000000;
+  border-top: none;
+}
+
+#examTableHeader > tr > th:first-child {
+  border-left: none;
+}
+
+#examTableHeader > tr > th:last-child {
+  border-right: none;
 }
 
 #examTableHeader::after {
@@ -67,9 +76,20 @@ body {
 
 #examTableBody {
   background-color: #e9f3c3;
-  border-style: hidden;
 }
 
 #examTableBody > tr > td {
   border: 1px solid #808080;
+}
+
+#examTableBody > tr > td:first-child {
+  border-left: none;
+}
+
+#examTableBody > tr > td:last-child {
+  border-right: none;
+}
+
+#examTableBody > tr:last-child > td {
+  border-bottom: none;
 }

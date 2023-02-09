@@ -7,6 +7,7 @@ var cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var customRoute = require('./routes/customRoute');
 
 var app = express();
 
@@ -17,8 +18,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// const customRoute = require('./routes/customRoute');
+// customRoute(app)
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api', customRoute);
 require('./config/mongoose.config')
 
 // catch 404 and forward to error handler
@@ -36,7 +41,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-const customRoute = require('./routes/customRoute');
-customRoute(app)
 
 module.exports = app;

@@ -20,7 +20,6 @@ function ExamTable(){
         </thead>
         <tbody id="examTableBody">
           <ExamTableRow/>
-          <ExamTableRow/>
         </tbody>
       </table>
     </div>

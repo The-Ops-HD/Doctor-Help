@@ -1,20 +1,38 @@
-import React from "react";
+import axios from "axios";
+import React, {useState, useEffect} from "react";
 
 function ExamTableRow(){
+  const [patients, setPatients] = useState([]);
+  useEffect( () => {
+    axios.get('http://localhost:9000/api/')
+    .then((response) => {
+      const result = response.data.exams;
+      console.log(response.data.exams);
+      setPatients(result);
+    })
+    .catch((err) => console.log(err.response));
+  }, []);
+  console.log(patients)
   return(
-    <tr>
-      <td>1</td>
-      <td>45</td>
-      <td>M</td>
-      <td>10003</td>
-      <td>21.5</td>
-      <td>1</td>
-      <td>Demo findings</td>
-      <td>2</td>
-      <td>
-        <img src="https://via.placeholder.com/100"/>
-      </td>
-    </tr>
+    <div>
+      {patients.map((patient, index) => {
+        return(
+            <tr key={index}>
+              <td>{patient.patientId}</td>
+              <td>{patient.age}</td>
+              <td>{patient.sex}</td>
+              <td>{patient.zipCode}</td>
+              <td>{patient.bmi}</td>
+              <td>{patient.examId}</td>
+              <td>{patient.keyFindings}</td>
+              <td>{patient.brixiaScores}</td>
+              <td>
+                <img src={patient.imageURL} style={{height: '100px', width: '100px'}}/>
+              </td>
+            </tr>
+        )
+      })}
+  </div>
   );
 }
 

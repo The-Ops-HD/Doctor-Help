@@ -1,42 +1,44 @@
 const express = require('express')
-const http = require('http');
+const { response, request } = require('express');
+const axios = require('axios');
+const http = require('https')
 
-const options = {
-  hostname: 'https://jsonplaceholder.typicode.com/todos/',
-  path: '/posts',
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-};
+const hostname = '127.0.01'
+const port = 9000;
 
-const getPosts = () => {
-  let data = '';
 
-  const request = http.request(options, (response) => {
-    // Set the encoding, so we don't get log to the console a bunch of gibberish binary data
-    response.setEncoding('utf8');
 
-    // As data starts streaming in, add each chunk to "data"
-    response.on('data', (chunk) => {
-      data += chunk;
-    });
-
-    // The whole response has been received. Print out the result.
-    response.on('end', () => {
-      console.log(data);
-    });
-  });
-
-  // Log errors if any occur
-  request.on('error', (error) => {
-    console.error(error);
-  });
-
-  // End the request
-  request.end();
-};
-
+// getPosts (() => {
+//   console.log('Wait for 2 second...')
+//   axios.get(
+//     `https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams`)
+//       .then(response => {
+//         const { id, title } = response.data
+//         console.log(`Post ${id}: ${title}\n`)
+//       })
+//       .catch(error => console.log(
+//         'Error to fetch data\n'))
+// });
 module.exports = {
-  getPosts
+  getPosts: ( () => {
+    console.log('Wait for 2 second...')
+    http
+    .get('https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams', resp => {
+      let data = ''
+        resp.on('data', chunk => {
+            data += chunk
+        })
+        resp.on('end', () => {
+            let peopleData = JSON.parse(data)
+            const server = http.createServer((req, res) => {
+              res.statusCode = 200
+              res.setHeader('Content-Type', 'application/json')
+              res.setHeader('Access-Controll-Allow-Origin', '*')
+              res.end(JSON.stringify(peopleData.people))
+              res.JSON(peopleData);
+            })
+            console.log(peopleData)
+        })
+    })
+  }),
 }

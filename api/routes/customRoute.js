@@ -1,10 +1,11 @@
-const patientController = require('../controllers/user-controller');
-const Patient = require('../model/user.model');
+var express = require('express');
+var router = express.Router();
+const axios = require('axios');
 const api = require('../controllers/api-controller');
-const express = require('express');
-const router = express.Router();
+
+
+
 
 module.exports = (app) => {
-  router
-  app.get('/api', api.getPosts)
+  app.get('/api', api.getPosts);
 }

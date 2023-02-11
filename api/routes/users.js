@@ -9,6 +9,5 @@ router.get('/', UserController.getUser);
 
 module.exports = (app) => {
   router
-  app.get('/api/', api.getPosts)
   
 }

@@ -14,7 +14,7 @@ function ExamTableRow(){
   }, []);
   console.log(patients)
   return(
-    <div>
+    <tbody id="examTableBody">
       {patients.map((patient, index) => {
         return(
             <tr key={index}>
@@ -32,7 +32,7 @@ function ExamTableRow(){
             </tr>
         )
       })}
-  </div>
+    </tbody>
   );
 }
 

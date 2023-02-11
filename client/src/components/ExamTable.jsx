@@ -4,7 +4,6 @@ import ExamTableRow from "./ExamTableRow";
 function ExamTable(){
   return(
     <div id="examTableContainer">
-      <p>Examinations</p>
       <table className='examTable'>
         <thead id="examTableHeader">
           <tr>
@@ -19,9 +18,8 @@ function ExamTable(){
             <th>Image</th>
           </tr>
         </thead>
-        <tbody id="examTableBody">
+        
           <ExamTableRow/>
-        </tbody>
       </table>
     </div>
   )

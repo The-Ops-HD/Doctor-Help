@@ -43,10 +43,14 @@ body {
 }
 
 #examTableContainer {
-  margin-top: 2rem;
   font-size: 13px;
-  display: flex;
+  display: grid;
   justify-content: center;
+}
+
+#examTableContainer > p {
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .examTable {
@@ -81,7 +85,7 @@ body {
 }
 
 #examTableBody > tr > td {
-  border: 1px solid #808080;
+  border: 1px solid #d4d4d4;
 }
 
 #examTableBody > tr > td:first-child {

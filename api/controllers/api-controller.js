@@ -20,7 +20,7 @@ const port = 9000;
 //         'Error to fetch data\n'))
 // });
 module.exports = {
-  getPosts: ( () => {
+  getPosts: ( (request, response) => {
     console.log('Wait for 2 second...')
     http
     .get('https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams', resp => {
@@ -35,9 +35,9 @@ module.exports = {
               res.setHeader('Content-Type', 'application/json')
               res.setHeader('Access-Controll-Allow-Origin', '*')
               res.end(JSON.stringify(peopleData.people))
-              res.JSON(peopleData);
             })
             console.log(peopleData)
+            response.json(peopleData)
         })
     })
   }),

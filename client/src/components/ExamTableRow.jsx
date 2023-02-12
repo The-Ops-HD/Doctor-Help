@@ -7,12 +7,10 @@ function ExamTableRow(){
     axios.get('http://localhost:9000/api/')
     .then((response) => {
       const result = response.data.exams;
-      console.log(response.data.exams);
       setPatients(result);
     })
     .catch((err) => console.log(err.response));
   }, []);
-  console.log(patients)
   return(
     <tbody id="examTableBody">
       {patients.map((patient, index) => {

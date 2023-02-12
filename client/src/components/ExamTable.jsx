@@ -19,8 +19,7 @@ function ExamTable(){
             <th>Image</th>
           </tr>
         </thead>
-        
-          <ExamTableRow/>
+        <ExamTableRow/>
       </table>
     </div>
   )

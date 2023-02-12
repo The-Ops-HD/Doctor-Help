@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const API_ROOT = 'http://localhost:9000';
+const API_ROOT = 'http://localhost:9000/api';
 
 export function useApi({ path } = { path: '' }) {
   const [response, setResponse] = useState();

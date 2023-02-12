@@ -4,6 +4,7 @@ import ExamTableRow from "./ExamTableRow";
 function ExamTable(){
   return(
     <div id="examTableContainer">
+      <p>Examinations</p>
       <table className='examTable'>
         <thead id="examTableHeader">
           <tr>

@@ -27,7 +27,7 @@ function ExamTableRow(){
               <td>{patient.keyFindings}</td>
               <td>{patient.brixiaScores}</td>
               <td>
-                <img src={patient.imageURL} style={{height: '100px', width: '100px'}}/>
+                <img src={patient.imageURL} alt="x-ray" style={{height: '100px', width: '100px'}}/>
               </td>
             </tr>
         )

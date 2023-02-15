@@ -24,5 +24,10 @@ module.exports = {
         response.json(err);
       })
   },
+  createPatient: (request, response) =>{
+    Patient.create(request.body)
+      .then(patient => response.json(patient))
+      .catch(err=> response.status(400).json(err))
+  },
 
 };

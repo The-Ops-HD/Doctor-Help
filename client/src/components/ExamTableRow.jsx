@@ -4,9 +4,10 @@ import React, {useState, useEffect} from "react";
 function ExamTableRow(){
   const [patients, setPatients] = useState([]);
   useEffect( () => {
-    axios.get('http://localhost:9000/api/')
+    axios.get('http://localhost:9000/api/getall')
     .then((response) => {
-      const result = response.data.exams;
+      console.log(response.data);
+      const result = response.data;
       setPatients(result);
     })
     .catch((err) => console.log(err.response));
@@ -16,16 +17,16 @@ function ExamTableRow(){
       {patients.map((patient, index) => {
         return(
             <tr key={index}>
-              <td>{patient.patientId}</td>
-              <td>{patient.age}</td>
-              <td>{patient.sex}</td>
-              <td>{patient.zipCode}</td>
+              <td>{patient.PatientId}</td>
+              <td>{patient.Age}</td>
+              <td>{patient.Sex}</td>
+              <td>{patient.ZipCode}</td>
               <td>{patient.bmi}</td>
-              <td>{patient.examId}</td>
-              <td>{patient.keyFindings}</td>
-              <td>{patient.brixiaScores}</td>
+              <td>{patient.ExamID}</td>
+              <td>{patient.KeyFindings}</td>
+              <td>{patient.BrixiaScore}</td>
               <td>
-                <img src={patient.imageURL} alt="x-ray" style={{height: '100px', width: '100px'}}/>
+                <img src={patient.ImageUrl} alt="x-ray" style={{height: '100px', width: '100px'}}/>
               </td>
             </tr>
         )

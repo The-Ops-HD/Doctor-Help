@@ -1,5 +1,7 @@
 import React from "react";
 import ExamTableRow from "./ExamTableRow";
+import CreatePost from './CreateExam';
+
 
 function ExamTable(){
   return(
@@ -21,6 +23,7 @@ function ExamTable(){
         </thead>
         <ExamTableRow/>
       </table>
+      <CreatePost></CreatePost>
     </div>
   )
 }

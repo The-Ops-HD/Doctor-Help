@@ -45,27 +45,28 @@ function PatientDetails(props) {
 
 
       const image = props.imageURL;
-
+      const patientID = props.patientId;
+      const sex = props.sex
+      const age = props.age;
+      const zip = props.zipCode;
 
     return(
         <div className="patientPage">
             <p>Hey, I'm here!</p>
-            <div className="id">Patient ID: {props.patientId}</div>
-            <div className="image">Image {props.imageURL}</div>
+            <div className="id">Patient ID: {patientID}</div>
+            <div className="image">{image}</div>
             <div className="InfoBox">
                 <p>Diagnosis:</p>
                 <ol>
                     <li>{props.keyFindings}</li>
-                    <li></li>
-                    <li></li>
                 </ol>
             </div>
             <div className="leftSide">
                 <p>Personal Info:</p>
                     <ol className="List">
-                        <li>Sex: {props.sex}</li>
-                        <li>Age: {props.age}</li>
-                        <li>Zip Code: {props.zipCode}</li>
+                        <li>Sex: {sex}</li>
+                        <li>Age: {age}</li>
+                        <li>Zip Code: {zip}</li>
                     </ol>
             </div>
         </div>

@@ -1,0 +1,16 @@
+.nav{
+    justify-content: end;
+}
+.InfoBox {
+   
+        width: calc(100vw * 2/3);
+        height: 200px;
+        background-color: lightgrey;
+        border: 3px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 20px;
+        margin: 0 auto;   
+  }

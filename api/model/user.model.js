@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// const bcrypt = require('bcrypt');
+
 
 
 
@@ -41,7 +41,11 @@ const PatientSchema = new mongoose.Schema({
   ZipCode:{
     type: Number,
     required: [true]
-  }
+  },
+  BrixiaScore: {
+    type: String,
+    required: [true]
+  },
 }, {timestamps : true})
 
 

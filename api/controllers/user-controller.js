@@ -12,7 +12,6 @@ const getUser = async (req, res) => {
 
 module.exports = {
   getUser,
-
   getAllPateints: (request, response) => {
     Patient.find({})
       .then( allPatients => {
@@ -24,10 +23,19 @@ module.exports = {
         response.json(err);
       })
   },
-  createPatient: (request, response) =>{
+  createPatient: (request, response) => {
     Patient.create(request.body)
       .then(patient => response.json(patient))
       .catch(err=> response.status(400).json(err))
   },
+  updatePatient:(request, response) => {
+    console.log("Updated Patient Details");
+    Patient.findOneAndUpdate({_id: request.params.id}, request.body, {new: true})
+      .then(updatedPatient => {
+        console.log(updatedPatient);
+        response.json(updatedPatient);
+      })
+      .catch(err => response.json(err))
+    },
 
 };

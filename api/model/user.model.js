@@ -9,11 +9,39 @@ const PatientSchema = new mongoose.Schema({
 	required: [true],
 	minLength: [3],
 },
-	Description: {
+	ExamID: {
 		type: String,
 		required: [true],
     minLength: [3],
 	},
+  Age:{
+    type: Number,
+    required: [true],
+  },
+  ImageUrl:{
+    type: String,
+    required: [true]
+  },
+  Sex:{
+    type: String,
+    required: [true]
+  },
+  Date:{
+    type: String,
+    required: [true]
+  },
+  bmi: {
+    type: String,
+    required: [true]
+  },
+  KeyFindings: {
+    type: String,
+    required: [true]
+  },
+  ZipCode:{
+    type: Number,
+    required: [true]
+  }
 }, {timestamps : true})
 
 

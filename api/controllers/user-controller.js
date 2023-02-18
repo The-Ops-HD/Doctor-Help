@@ -37,5 +37,27 @@ module.exports = {
       })
       .catch(err => response.json(err))
     },
+    deletePAtient:(request, response)=> {
+      Patient.deleteOne({_id: request.params.id})
+        .then(deleteConfirmation => response.json(deleteConfirmation))
+        .catch(err => response.json(err))
+      },
+    findPatientId: (request, response)=> {
+      const filter = {};
+      Patient.find({PatientId:request.params.PatientId})
+        .then( allPatients => {
+          console.log(allPatients);
+          response.json(allPatients);
+        })
+        .catch((err)=> {
+          console.log(err);
+          response.json(err);
+        })
+      },
+      findOneExam: (request, response) => {
+        Patient.findOne({_id:request.params.id})
+          .then(patient=> response.json(patient))
+          .catch(err => response.status(400).json(err))
+      },
 
 };

@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, {useState, useEffect} from "react";
+import Button from './PatientButton';
 
-function ExamTableRow(){
+function ExamTableRow(props){
   const [patients, setPatients] = useState([]);
   useEffect( () => {
     axios.get('http://localhost:9000/api/getall')
@@ -31,7 +32,7 @@ function ExamTableRow(){
               <td>
                 <img src={patient.ImageUrl} alt="x-ray" style={{height: '100px', width: '100px'}}/>
               </td>
-              <button>Expand</button>
+              <Button patientId={patient.PatientId} setPatient={props.setPatient} />
             </tr>
         )
       })}

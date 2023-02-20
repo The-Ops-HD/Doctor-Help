@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import ExamTableRow from "./ExamTableRow";
 import CreatePost from './CreateExam';
+import PatientDetails from './PatientDetails';
 
 
 function ExamTable(){
+  const [patient, setPatient] = useState(null)
   return(
     <div id="examTableContainer">
       <p>Examinations</p>
@@ -22,8 +24,9 @@ function ExamTable(){
             <th>Expand Details</th>
           </tr>
         </thead>
-        <ExamTableRow/>
+        <ExamTableRow setPatient={setPatient}/>
       </table>
+      <PatientDetails patient={patient}/>
       <CreatePost></CreatePost>
     </div>
   )

@@ -1,6 +1,6 @@
-import {React, useState, } from "react";
+import {React, useEffect, useState} from "react";
 import './PatientDetails.css';
-import axios from 'axios';
+//import axios from 'axios';
 
 
 
@@ -32,16 +32,17 @@ function PatientDetails(props) {
        
     // if(loading) return "<----Loading---->"
     // if(error) return "Error"
+
     const [individualPatient, setIndividualPatient] = useState([])
-    useEffect( () => {
-        axios.get('http://localhost:9000/api/')
-        .then((response) => {
-          const result = response.data.exams;
-          console.log(response.data.exams);
-          setPatients(result);
-        })
-        .catch((err) => console.log(err.response));
-      }, []);
+    // useEffect( () => {
+    //     fetch('http://localhost:9000/api/')
+    //     .then((response) => {
+    //       const result = response.data.exams;
+    //       console.log(response.data.exams);
+    //       setPatients(result);
+    //     })
+    //     .catch((err) => console.log(err.response));
+    //   }, []);
 
 
       const image = props.imageURL;
@@ -54,7 +55,7 @@ function PatientDetails(props) {
         <div className="patientPage">
             <p>Hey, I'm here!</p>
             <div className="id">Patient ID: {patientID}</div>
-            <div className="image">{image}</div>
+            <div className="image">Image{image}</div>
             <div className="InfoBox">
                 <p>Diagnosis:</p>
                 <ol>

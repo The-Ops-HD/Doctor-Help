@@ -1,11 +1,13 @@
-import {React, useEffect, useState} from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import {React} from "react";
 import './PatientDetails.css';
 //import axios from 'axios';
 
 
 
 
-function PatientDetails(props) {
+function PatientDetails() {
      // const [data, setData] = useState(null)
     // const [loading, setLoading] = useState(true)
     // const [error, setError] = useState(null)
@@ -32,42 +34,40 @@ function PatientDetails(props) {
        
     // if(loading) return "<----Loading---->"
     // if(error) return "Error"
-
-    const [individualPatient, setIndividualPatient] = useState([])
-    // useEffect( () => {
-    //     fetch('http://localhost:9000/api/')
-    //     .then((response) => {
-    //       const result = response.data.exams;
-    //       console.log(response.data.exams);
-    //       setPatients(result);
-    //     })
-    //     .catch((err) => console.log(err.response));
-    //   }, []);
+    const [patient, setPatient] = useState([])
+   
+    
+        fetch(`http://localhost:9000/api/get/212212`)
+        .then((response) =>response.json())
+        .then(data => {
+            console.log(data)
+            setPatient(data[0])
+        })
 
 
-      const image = props.imageURL;
-      const patientID = props.patientId;
-      const sex = props.sex
-      const age = props.age;
-      const zip = props.zipCode;
+      
 
     return(
         <div className="patientPage">
             <p>Hey, I'm here!</p>
-            <div className="id">Patient ID: {patientID}</div>
-            <div className="image">Image{image}</div>
+            <div className="id">Patient ID: {patient.PatientId}</div>
+            <div className="image">
+            <img src="https://images.pexels.com/photos/207496/pexels-photo-20749"  alt="Patient-Detail"/>
+            </div>
             <div className="InfoBox">
                 <p>Diagnosis:</p>
                 <ol>
-                    <li>{props.keyFindings}</li>
+                    <li> {patient.KeyFindings}</li>
+                    <li>{patient.BrixiaScore}</li>
                 </ol>
             </div>
             <div className="leftSide">
                 <p>Personal Info:</p>
                     <ol className="List">
-                        <li>Sex: {sex}</li>
-                        <li>Age: {age}</li>
-                        <li>Zip Code: {zip}</li>
+                        <li>Sex: {patient.Sex}</li>
+                        <li>Age: {patient.Age}</li>
+                        <li>Zip Code: {patient.ZipCode}</li>
+                        <li>BMI: {patient.bmi}</li>
                     </ol>
             </div>
         </div>

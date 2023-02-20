@@ -12,6 +12,9 @@ function ExamTableRow(){
     })
     .catch((err) => console.log(err.response));
   }, []);
+
+  
+  
   return(
     <tbody id="examTableBody">
       {patients.map((patient, index) => {
@@ -28,6 +31,7 @@ function ExamTableRow(){
               <td>
                 <img src={patient.ImageUrl} alt="x-ray" style={{height: '100px', width: '100px'}}/>
               </td>
+              <button>Expand</button>
             </tr>
         )
       })}

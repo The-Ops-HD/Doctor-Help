@@ -19,6 +19,7 @@ function ExamTable(){
             <th>Key Findings</th>
             <th>Brixia Scores</th>
             <th>Image</th>
+            <th>Expand Details</th>
           </tr>
         </thead>
         <ExamTableRow/>

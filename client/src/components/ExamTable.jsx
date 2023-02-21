@@ -2,10 +2,11 @@ import React, {useState} from "react";
 import ExamTableRow from "./ExamTableRow";
 import CreatePost from './CreateExam';
 import PatientDetails from './PatientDetails';
+import { useEffect } from "react";
 
 
 function ExamTable(){
-  const [patient, setPatient] = useState(null)
+  const [patient, setPatient] = useState();
   return(
     <div id="examTableContainer">
       <p>Examinations</p>

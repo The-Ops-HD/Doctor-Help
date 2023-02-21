@@ -8,7 +8,8 @@ import './PatientDetails.css';
 
 function PatientDetails(props) {
     if(!props.patient){
-        return
+      console.log("GERE!!!!!*************");
+        return '';
     }
       
     return(

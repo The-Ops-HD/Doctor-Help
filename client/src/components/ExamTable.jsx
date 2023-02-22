@@ -1,12 +1,11 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import ExamTableRow from "./ExamTableRow";
 import CreatePost from './CreateExam';
 import PatientDetails from './PatientDetails';
 
-
-function ExamTable(){
+function ExamTable() {
   const [patient, setPatient] = useState(null)
-  return(
+  return (
     <div id="examTableContainer">
       <p>Examinations</p>
       <table className='examTable'>
@@ -27,7 +26,7 @@ function ExamTable(){
         <ExamTableRow setPatient={setPatient}/>
       </table>
       <PatientDetails patient={patient}/>
-      <CreatePost></CreatePost>
+      <CreatePost />
     </div>
   )
 }

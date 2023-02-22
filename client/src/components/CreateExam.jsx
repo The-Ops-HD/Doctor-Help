@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 
-
-
 const CreatePost = () => {
   const [patients, setPatients] = useState([]);
   const [PatientId, setPatientId] = useState();
@@ -16,8 +14,6 @@ const CreatePost = () => {
   const [ZipCode, setZipCode] = useState();
   const [BrixiaScore, setBrixiaScore] = useState();
   
-  
-
   useEffect( () => {
     axios.get('http://localhost:9000/api/')
     .then((response) => {
@@ -26,6 +22,7 @@ const CreatePost = () => {
     })
     .catch((err) => console.log(err.response));
   }, []);
+
   const onSubmitHandler = () => {
     axios.post('http://localhost:9000/api/create', {
       PatientId,
@@ -46,8 +43,10 @@ const CreatePost = () => {
       console.log('ERROR!', err.response);
     })
   }
-  return(
+
+  return (
     <div>
+      <h2>Create</h2>
     </div>
   )
 }

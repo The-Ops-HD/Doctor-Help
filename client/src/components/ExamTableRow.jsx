@@ -3,6 +3,7 @@ import React, {useState, useEffect} from "react";
 import Button from './PatientButton';
 
 function ExamTableRow(props){
+
   const [patients, setPatients] = useState([]);
   useEffect( () => {
     axios.get('http://localhost:9000/api/getall')
@@ -14,7 +15,6 @@ function ExamTableRow(props){
     .catch((err) => console.log(err.response));
   }, []);
 
-  
   
   return(
     <tbody id="examTableBody">

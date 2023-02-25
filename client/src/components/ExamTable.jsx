@@ -1,12 +1,25 @@
-import React, {useState} from "react";
 import ExamTableRow from "./ExamTableRow";
 import CreatePost from './CreateExam';
 import PatientDetails from './PatientDetails';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 
-function ExamTable(){
-  const [patient, setPatient] = useState();
+function ExamTable({selectedPatient, setSelectedPatient}){
+
+  const [allPatients, setAllPatients] = useState([]);
+  useEffect( () => {
+    axios.get('http://localhost:9000/api/getall')
+    .then((response) => {
+      console.log(response.data);
+      const result = response.data;
+      setAllPatients(result);
+    })
+    .catch((err) => console.log(err.response));
+  }, []);
+
+  const patientList = allPatients.map((patient)=> <ExamTableRow key={patient.PatientId} patient={patient} selectedPatient={selectedPatient} setSelectedPatient={setSelectedPatient}/>)
+
   return(
     <div id="examTableContainer">
       <p>Examinations</p>
@@ -25,10 +38,13 @@ function ExamTable(){
             <th>Expand Details</th>
           </tr>
         </thead>
-        <ExamTableRow setPatient={setPatient}/>
+        <tbody id="examTableBody">
+          {patientList}
+        </tbody>
+        {/* <ExamTableRow setPatient={setPatient}/> */}
       </table>
-      <PatientDetails patient={patient}/>
-      <CreatePost></CreatePost>
+      {/* <PatientDetails patient={patient}/>
+      <CreatePost></CreatePost> */}
     </div>
   )
 }

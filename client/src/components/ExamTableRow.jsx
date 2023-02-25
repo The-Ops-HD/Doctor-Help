@@ -1,19 +1,16 @@
-import axios from "axios";
+
 import React, {useState, useEffect} from "react";
-import Button from './PatientButton';
+import {useNavigate} from "react-router-dom"
 
 function ExamTableRow({patient, setSelectedPatient, selectedPatient}){
-  setSelectedPatient(patient);
-  // const [patients, setPatients] = useState([]);
-  // useEffect( () => {
-  //   axios.get('http://localhost:9000/api/getall')
-  //   .then((response) => {
-  //     console.log(response.data);
-  //     const result = response.data;
-  //     setPatients(result);
-  //   })
-  //   .catch((err) => console.log(err.response));
-  // }, []);
+  let navigate = useNavigate(); 
+  
+
+  function handleClick(event){
+    event.preventDefault();
+    setSelectedPatient(patient);
+    navigate("/exam")
+  }
 
   
   return(
@@ -29,7 +26,7 @@ function ExamTableRow({patient, setSelectedPatient, selectedPatient}){
               <td>
                 <img src={patient.ImageUrl} alt="x-ray" style={{height: '100px', width: '100px'}}/>
               </td>
-              <Button patientId={patient.PatientId} selectedPatient={selectedPatient} />
+              <button onClick={handleClick}> Expand </button>
             </tr>
   )
 }

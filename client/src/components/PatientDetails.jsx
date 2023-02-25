@@ -6,8 +6,8 @@ import './PatientDetails.css';
 
 
 
-function PatientDetails(props) {
-    if(!props.patient){
+function PatientDetails({selectedPatient}) {
+    if(!selectedPatient){
       console.log("GERE!!!!!*************");
         return '';
     }
@@ -15,23 +15,23 @@ function PatientDetails(props) {
     return(
         <div className="patientPage">
             <p>Hey, I'm here!</p>
-            <div className="id">Patient ID: {props.patient.PatientId}</div>
-            <img className="image" src={props.patient.ImageUrl} alt="Patient-Detail"/>
+            <div className="id">Patient ID: {selectedPatient.PatientId}</div>
+            <img className="image" src={selectedPatient.ImageUrl} alt="Patient-Detail"/>
             
             <div className="InfoBox">
                 <p>Diagnosis: </p>
                 <ol>
-                    <li>{props.patient.KeyFindings}</li>
-                    <li>{props.patient.BrixiaScore}</li>
+                    <li>{selectedPatient.KeyFindings}</li>
+                    <li>{selectedPatient.BrixiaScore}</li>
                 </ol>
             </div>
             <div className="leftSide">
                 <p>Personal Info:</p>
                     <ol className="List">
-                        <li>Sex: {props.patient.Sex}</li>
-                        <li>Age: {props.patient.Age}</li>
-                        <li>Zip Code: {props.patient.ZipCode}</li>
-                        <li>BMI: {props.patient.bmi}</li>
+                        <li>Sex: {selectedPatient.Sex}</li>
+                        <li>Age: {selectedPatient.Age}</li>
+                        <li>Zip Code: {selectedPatient.ZipCode}</li>
+                        <li>BMI: {selectedPatient.bmi}</li>
                     </ol>
             </div>
         </div>

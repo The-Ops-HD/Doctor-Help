@@ -15,7 +15,7 @@ function App() {
 
     <Route path='/exam/edit'>
       <Header/>
-     <CreateExam/> 
+      <CreateExam/> 
     </Route>
 
       <Route path="/home">

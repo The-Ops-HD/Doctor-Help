@@ -4,7 +4,7 @@ import axios from "axios";
 
 
 
-const CreatePost = () => {
+const CreatePost = (props) => {
   const [patients, setPatients] = useState([]);
   const [PatientId, setPatientId] = useState();
   const [ExamID, setExamID] = useState();
@@ -20,12 +20,8 @@ const CreatePost = () => {
   
 
   useEffect( () => {
-    axios.get('http://localhost:9000/api/')
-    .then((response) => {
-      const result = response.data.exams;
-      setPatients(result);
-    })
-    .catch((err) => console.log(err.response));
+    props.setHeader("Create Exam");
+    props.setVariable(1);
   }, []);
   const onSubmitHandler = () => {
     axios.post('http://localhost:9000/api/create', {

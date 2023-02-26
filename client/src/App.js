@@ -11,16 +11,22 @@ import { useEffect } from 'react';
 
 
 function App() {
-  const [patient, setPatient] = useState();
+  const [header, setHeader] = useState('Doctor Help');
+  const [pathName, setPath] = useState('');
+  const [variable , setVariable] = useState(0);
+  useEffect(() => {
+    setPath(window.location.pathname)
+    console.log(pathName);
+  }, [variable])
   return (
     <div>
-        <Header/>
+        <Header header = {header}/>
         <Routes>
-          <Route path={'/'} element={<ExamTable/>}/>
-          <Route path={'/create'} element={<CreateExam/>}/>
+          <Route path={'/'} element={<ExamTable setHeader = {setHeader} setVariable = {setVariable}/>}/>
+          <Route path={'/create'} element={<CreateExam setHeader = {setHeader} setVariable = {setVariable}/>}/>
           {/* <Route path={'/update/:id'} element={<Update/>}/> */}
-          <Route path={'/admin'} element={<AdminMode/>}/>
-          <Route path={'/details/:id'} element = {<PatientDetails patient = {patient}/>}/>
+          <Route path={'/admin'} element={<AdminMode setHeader = {setHeader} setVariable = {setVariable}/>}/>
+          <Route path={'/details/:id'} element = {<PatientDetails setHeader = {setHeader} setVariable = {setVariable}/>}/>
         </Routes>
         <Footer/>
     </div>

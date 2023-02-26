@@ -8,9 +8,10 @@ function PatientDetails(props) {
   const [exam, setExam] = useState('');
   const {id} = useParams();
   useEffect(()=> {
+    props.setHeader("EXAM ID");
+    props.setVariable(3);
     axios.get(`http://localhost:9000/api/getExam/${id}`)
     .then(res => {
-      console.log(res.data);
       setExam(res.data);
     })
     .catch( err => console.log(err));

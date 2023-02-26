@@ -1,12 +1,8 @@
 import React, {useState} from "react";
-import ExamTableRow from "./ExamTableRow";
-import CreatePost from './CreateExam';
-import PatientDetails from './PatientDetails';
 import { useEffect } from "react";
+import ExamTableRow from "./ExamTableRow";
 
-
-function ExamTable(){
-
+function ExamTable(props){
   return(
     <div id="examTableContainer">
       <p>Examinations</p>

@@ -10,7 +10,6 @@ function ExamTableRow(props){
   useEffect( () => {
     axios.get('http://localhost:9000/api/getall')
     .then((response) => {
-      console.log(response.data);
       const result = response.data;
       setPatients(result);
     })

@@ -6,6 +6,8 @@ import CreateExam from './components/CreateExam';
 import {Route, Routes, BrowserRouter} from "react-router-dom";
 import Footer from './components/Footer';
 import { useState } from 'react';
+import AdminMode from './components/adminMode';
+import { useEffect } from 'react';
 
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
           <Route path={'/'} element={<ExamTable/>}/>
           <Route path={'/create'} element={<CreateExam/>}/>
           {/* <Route path={'/update/:id'} element={<Update/>}/> */}
+          <Route path={'/admin'} element={<AdminMode/>}/>
           <Route path={'/details/:id'} element = {<PatientDetails patient = {patient}/>}/>
         </Routes>
         <Footer/>

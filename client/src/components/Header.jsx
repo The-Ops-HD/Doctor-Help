@@ -1,10 +1,12 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Header(){
-	const navigate= useNavigate();
+  const navigate = useNavigate();
   const handleAdmin = () => {
-    navigate('/create')
+    navigate('/admin');
   }
   return (
     <div id="header-container">

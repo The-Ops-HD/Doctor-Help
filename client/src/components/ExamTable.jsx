@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 
 function ExamTable(){
-  const [patient, setPatient] = useState();
+
   return(
     <div id="examTableContainer">
       <p>Examinations</p>
@@ -25,9 +25,8 @@ function ExamTable(){
             <th>Expand Details</th>
           </tr>
         </thead>
-        <ExamTableRow setPatient={setPatient}/>
+        <ExamTableRow/>
       </table>
-      {/* <PatientDetails patient={patient}/> */}
     </div>
   )
 }

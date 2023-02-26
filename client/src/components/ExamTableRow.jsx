@@ -34,7 +34,9 @@ function ExamTableRow(props){
               <td>
                 <img src={patient.ImageUrl} alt="x-ray" style={{height: '100px', width: '100px'}}/>
               </td>
+              <td>
               <Button id = {patient._id}/>
+              </td>
             </tr>
         )
       })}

@@ -49,7 +49,10 @@ const CreatePost = () => {
   }
   return(
     <div>
-      <h1>ADMIN MODE!!!</h1>
+      <h1>CREATE EXAM MODE</h1>
+      <button>
+        CREATE
+      </button>
     </div>
   )
 }

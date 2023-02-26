@@ -10,9 +10,7 @@ function Button(props){
         navigate(`/details/${props.id}`);
     }
     return(
-        <div>
-            <button onClick={expandButton}>Expand</button>
-        </div>
+    <button onClick={expandButton}>Expand</button>
     )
 }
 

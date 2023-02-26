@@ -1,10 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Header(){
+	const navigate= useNavigate();
+  const handleAdmin = () => {
+    navigate('/create')
+  }
   return (
     <div id="header-container">
       <div className="title">Doctor Help</div>
-      <button className="button">Enable Admin Mode</button>
+      <button className="button" onClick={handleAdmin}>Enable Admin Mode</button>
     </div>
   )
 }

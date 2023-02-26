@@ -3,6 +3,7 @@ import axios from "axios";
 
 
 
+
 const CreatePost = () => {
   const [patients, setPatients] = useState([]);
   const [PatientId, setPatientId] = useState();
@@ -48,6 +49,7 @@ const CreatePost = () => {
   }
   return(
     <div>
+      <h1>ADMIN MODE!!!</h1>
     </div>
   )
 }

@@ -59,5 +59,5 @@ module.exports = {
           .then(patient=> response.json(patient))
           .catch(err => response.status(400).json(err))
       },
-
+      
 };

@@ -3,29 +3,24 @@ import ExamTable from './components/ExamTable';
 import Header from './components/Header.jsx'
 import PatientDetails from './components/PatientDetails';
 import CreateExam from './components/CreateExam';
-import {Route, Switch} from "react-router-dom";
+import {Route, Routes, BrowserRouter} from "react-router-dom";
+import Footer from './components/Footer';
+import { useState } from 'react';
+
 
 function App() {
+  const [patient, setPatient] = useState();
   return (
-    <Switch>
-      <Route path="/exam">
+    <div>
         <Header/>
-        <PatientDetails/>
-      </Route>
-
-    <Route path='/exam/edit'>
-      <Header/>
-      <CreateExam/> 
-    </Route>
-
-      <Route path="/home">
-        <div className="App">
-          <Header />
-          <ExamTable/>
-        </div>
-      </Route>
-
-    </Switch>
+        <Routes>
+          <Route path={'/'} element={<ExamTable/>}/>
+          <Route path={'/create'} element={<CreateExam/>}/>
+          {/* <Route path={'/update/:id'} element={<Update/>}/> */}
+          <Route path={'/details/:id'} element = {<PatientDetails patient = {patient}/>}/>
+        </Routes>
+        <Footer/>
+    </div>
   );
 }
 

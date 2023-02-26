@@ -1,21 +1,14 @@
 import {React, useState, useEffect} from 'react';
+import { Link, useNavigate } from "react-router-dom";
 
 import axios from "axios";
 
 
 function Button(props){
-    const patientId = props.patientId
+    const navigate= useNavigate()
     function expandButton(e){
-          e.preventDefault();
-        axios.get(`http://localhost:9000/api/get/${patientId}`)
-        .then(res => {
-          console.log(res);
-          props.setPatient(res.data[0]);
-        })
-        .catch( err => console.log(err));
-      }
-
-    
+        navigate(`/details/${props.id}`);
+    }
     return(
         <div>
             <button onClick={expandButton}>Expand</button>

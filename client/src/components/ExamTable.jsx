@@ -27,8 +27,7 @@ function ExamTable(){
         </thead>
         <ExamTableRow setPatient={setPatient}/>
       </table>
-      <PatientDetails patient={patient}/>
-      <CreatePost></CreatePost>
+      {/* <PatientDetails patient={patient}/> */}
     </div>
   )
 }

@@ -1,5 +1,4 @@
 import './App.css';
-import ExamTable from './components/ExamTable';
 import Header from './components/Header.jsx'
 import PatientDetails from './components/PatientDetails';
 import CreateExam from './components/CreateExam';
@@ -8,6 +7,7 @@ import Footer from './components/Footer';
 import { useState } from 'react';
 import AdminMode from './components/adminMode';
 import { useEffect } from 'react';
+import Examinations from './components/examinations';
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
     <div>
         <Header header = {header}/>
         <Routes>
-          <Route path={'/'} element={<ExamTable setHeader = {setHeader} setVariable = {setVariable}/>}/>
+          <Route path={'/'} element={<Examinations setHeader = {setHeader} setVariable = {setVariable}/>}/>
           <Route path={'/create'} element={<CreateExam setHeader = {setHeader} setVariable = {setVariable}/>}/>
           {/* <Route path={'/update/:id'} element={<Update/>}/> */}
           <Route path={'/admin'} element={<AdminMode setHeader = {setHeader} setVariable = {setVariable}/>}/>

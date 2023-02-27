@@ -1,9 +1,8 @@
-import React, {useState} from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ExamTableRow from "./ExamTableRow";
 
-function ExamTable(props){
-  return(
+function ExamTable(props) {
+  return (
     <div id="examTableContainer">
       <p>Examinations</p>
       <table className='examTable'>

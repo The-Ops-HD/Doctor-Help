@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Button from "./PatientButton";
+import PatientButton from "./PatientButton";
 
 const PatientExams = (props) => {
   const {PatientId} = useParams();
@@ -60,7 +60,7 @@ const PatientExams = (props) => {
                 <img src={patient.ImageUrl} alt="x-ray" style={{height: '100px', width: '100px'}}/>
               </td>
               <td>
-              <Button id = {patient._id}/>
+              <PatientButton id = {patient._id}/>
               </td>
             </tr>
         )

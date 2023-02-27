@@ -1,6 +1,4 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Header(props){
@@ -11,6 +9,7 @@ function Header(props){
   const goHome = () =>{
     navigate('/');
   }
+
   return (
     <div id="header-container">
       <div className="title" onClick={goHome}>{props.header}</div>
@@ -19,4 +18,4 @@ function Header(props){
   )
 }
 
-export default Header
+export default Header;

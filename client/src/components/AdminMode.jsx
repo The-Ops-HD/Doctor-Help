@@ -1,22 +1,19 @@
-import React from "react";
-import ExamTable from "./ExamTable";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-
-
-
-
+import ExamTable from "./ExamTable";
 
 const AdminMode = (props) =>{
-	const navigate= useNavigate();
+	const navigate = useNavigate();
   const handleCreate = () => {
     navigate('/create')
   }
+
   useEffect(() => {
     props.setHeader("Admin")
     props.setVariable(5);
   }, [])
-  return(
+  
+  return (
     <div>
       <h1>
         ADMIN MODE

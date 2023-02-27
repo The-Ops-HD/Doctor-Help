@@ -1,8 +1,7 @@
-import axios from "axios";
 import React, {useState, useEffect} from "react";
-import Button from './PatientButton';
 import { Link, useNavigate } from "react-router-dom";
-
+import axios from "axios";
+import PatientButton from './PatientButton';
 
 function ExamTableRow(props){
   const navigate = useNavigate;
@@ -38,7 +37,7 @@ function ExamTableRow(props){
                 <img src={patient.ImageUrl} alt="x-ray" style={{height: '100px', width: '100px'}}/>
               </td>
               <td>
-              <Button id = {patient._id}/>
+              <PatientButton id = {patient._id}/>
               </td>
             </tr>
         )

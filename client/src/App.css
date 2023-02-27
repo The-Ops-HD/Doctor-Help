@@ -43,60 +43,7 @@ body {
   background-color: #3b5559;
 }
 
-#examTableContainer {
-  font-size: 13px;
-  display: grid;
+.mui-table {
+  display: flex;
   justify-content: center;
-}
-
-#examTableContainer > p {
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.examTable {
-  text-align: center;
-  width: 75vw;
-  border-collapse: collapse;
-}
-
-#examTableHeader {
-  background-color: #c9c9c9;
-}
-
-#examTableHeader > tr > th {
-  border: 1px solid #000000;
-  border-top: none;
-}
-
-#examTableHeader > tr > th:first-child {
-  border-left: none;
-}
-
-#examTableHeader > tr > th:last-child {
-  border-right: none;
-}
-
-#examTableHeader::after {
-  content: "";
-}
-
-#examTableBody {
-  background-color: #e9f3c3;
-}
-
-#examTableBody > tr > td {
-  border: 1px solid #d4d4d4;
-}
-
-#examTableBody > tr > td:first-child {
-  border-left: none;
-}
-
-#examTableBody > tr > td:last-child {
-  border-right: none;
-}
-
-#examTableBody > tr:last-child > td {
-  border-bottom: none;
 }

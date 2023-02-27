@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import ExamTable from "./ExamTable";
 
 const Examinations = (props) => {
@@ -7,7 +6,8 @@ const Examinations = (props) => {
     props.setHeader("Doctor Help")
     props.setVariable(5);
   }, [])
-  return(
+
+  return (
     <ExamTable/>
   )
 }

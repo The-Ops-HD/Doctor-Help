@@ -8,16 +8,13 @@ import { useState } from 'react';
 import AdminMode from './components/adminMode';
 import { useEffect } from 'react';
 import Examinations from './components/examinations';
+import PatientExams from './components/PatientExams';
 
 
 function App() {
   const [header, setHeader] = useState('Doctor Help');
   const [pathName, setPath] = useState('');
-  const [variable , setVariable] = useState(0);
-  useEffect(() => {
-    setPath(window.location.pathname)
-    console.log(pathName);
-  }, [variable])
+  const [variable , setVariable] = useState(0)
   return (
     <div>
         <Header header = {header}/>
@@ -27,6 +24,7 @@ function App() {
           {/* <Route path={'/update/:id'} element={<Update/>}/> */}
           <Route path={'/admin'} element={<AdminMode setHeader = {setHeader} setVariable = {setVariable}/>}/>
           <Route path={'/details/:id'} element = {<PatientDetails setHeader = {setHeader} setVariable = {setVariable}/>}/>
+          <Route path={'/patientexam/:PatientId'} element= {<PatientExams setHeader = {setHeader} setVariable = {setVariable} />}/>
         </Routes>
         <Footer/>
     </div>

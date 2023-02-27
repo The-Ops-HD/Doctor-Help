@@ -22,7 +22,11 @@ function ExamTableRow(props){
       {patients.map((patient, index) => {
         return(
             <tr key={index}>
-              <td>{patient.PatientId}</td>
+              <td>
+                <Link to = {`http://localhost:3000/patientexam/${patient.PatientId}`}>
+                  {patient.PatientId}
+                </Link>
+              </td>
               <td>{patient.Age}</td>
               <td>{patient.Sex}</td>
               <td>{patient.ZipCode}</td>

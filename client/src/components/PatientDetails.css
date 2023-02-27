@@ -34,3 +34,7 @@
 .list{
     /* list-style: none; */
 }
+
+.logo{
+  cursor: pointer;
+}

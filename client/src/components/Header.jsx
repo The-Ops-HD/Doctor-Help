@@ -8,9 +8,12 @@ function Header(props){
   const handleAdmin = () => {
     navigate('/admin');
   }
+  const goHome = () =>{
+    navigate('/');
+  }
   return (
     <div id="header-container">
-      <div className="title">{props.header}</div>
+      <div className="title" onClick={goHome}>{props.header}</div>
       <button className="button" onClick={handleAdmin}>Enable Admin Mode</button>
     </div>
   )

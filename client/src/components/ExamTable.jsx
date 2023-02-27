@@ -22,7 +22,7 @@ function ExamTable() {
   
   return (
     <div className="mui-table">
-      <TableContainer sx={{ maxWidth: 800 }} component={Paper}>
+      <TableContainer sx={{ maxWidth: 1100 }} component={Paper}>
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -31,6 +31,10 @@ function ExamTable() {
               <TableCell align="right">Image</TableCell>
               <TableCell align="right">Key Findings</TableCell>
               <TableCell align="right">Brixia Score</TableCell>
+              <TableCell align="right">Age</TableCell>
+              <TableCell align="right">Sex</TableCell>
+              <TableCell align="right">BMI</TableCell>
+              <TableCell align="right">ZIP Code</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -52,6 +56,10 @@ function ExamTable() {
                   </TableCell>
                   <TableCell align="right">{patient.KeyFindings}</TableCell>
                   <TableCell align="right">{patient.BrixiaScore}</TableCell>
+                  <TableCell align="right">{patient.Age}</TableCell>
+                  <TableCell align="right">{patient.Sex}</TableCell>
+                  <TableCell align="right">{patient.bmi}</TableCell>
+                  <TableCell align="right">{patient.ZipCode}</TableCell>
                 </TableRow>
               )
             })}

@@ -82,45 +82,45 @@ const CreatePost = (props) => {
 
   return (
     <div>
-    <FormControl onSubmit={onSubmitHandler}>
+    <form onSubmit={onSubmitHandler} style={{width: "82%", marginLeft: "11%"}}>
       <Box pl={10} sx={{ width: '100%' }}>
-        <div style={{textAlign: "center", marginLeft:"-300px", marginTop:"15px"}}>
+        <div style={{textAlign: "center", marginLeft:"-210px", marginTop:"15px"}}>
         <Button type="submit" sx={{ backgroundColor: '#b6bf88' }} variant="contained">Create</Button>
         </div>
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           <Grid item xs={6}>
             <TextField sx={{ m: 1, width: '35ch' }}  id="outlined-basic" label="Patient ID" variant="outlined" onChange={handlePatientId} type="text"></TextField>
+          </Grid>
+          <Grid item xs={6}>
+            <TextField  sx={{ m: 1, width: '35ch' }}  id="outlined-basic" label="EXAM ID" variant="outlined" onChange={handleExam} type="text"></TextField>
+          </Grid>
+          <Grid item xs={6}>
+            <TextField sx={{ m: 1, width: '35ch' }}  id="outlined-basic" label="Age" variant="outlined" onChange={handleAge} type="text"></TextField>
+          </Grid>
+          <Grid item xs={6}>
+            <TextField sx={{ m: 1, width: '35ch' }}  id="outlined-basic" label="Image URL" variant="outlined" onChange={handleImageUrl}type="text"></TextField>
+          </Grid>
+          <Grid item xs={6}>
+            <TextField sx={{ m: 1, width: '35ch' }}  id="outlined-basic" label="Sex" variant="outlined" onChange={handleSex}type="text"></TextField>
+          </Grid>
+          <Grid item xs={6}>
+            <TextField sx={{ m: 1, width: '35ch' }}  id="outlined-basic" label="Date" variant="outlined" onChange={handleDate}type="text"></TextField>
+          </Grid>
+          <Grid item xs={6}>
+            <TextField sx={{ m: 1, width: '35ch' }}  id="outlined-basic" label="BMI" variant="outlined" onChange={handleBmi}type="text"></TextField>
+          </Grid>
+          <Grid item xs={6}>
+            <TextField  sx={{ m: 1, width: '35ch' }} id="outlined-basic" label="Key Findings" variant="outlined" onChange={handleKeyfindings}type="text"></TextField>
+          </Grid>
+          <Grid item xs={6}>
+            <TextField sx={{ m: 1, width: '35ch' }}  id="outlined-basic" label="Zip Code" variant="outlined" onChange={handleZipCOde}type="text"></TextField>
+          </Grid>
+          <Grid item xs={6}>
+            <TextField sx={{ m: 1, width: '35ch' }}  id="outlined-basic" label="Brixia Score" variant="outlined" onChange={handleBrixia}type="text" ></TextField>
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <TextField  sx={{ m: 1, width: '35ch' }}  id="outlined-basic" label="EXAM ID" variant="outlined" onChange={handleExam} type="text"></TextField>
-        </Grid>
-        <Grid item xs={6}>
-          <TextField sx={{ m: 1, width: '35ch' }}  id="outlined-basic" label="Age" variant="outlined" onChange={handleAge} type="text"></TextField>
-        </Grid>
-        <Grid item xs={6}>
-          <TextField sx={{ m: 1, width: '35ch' }}  id="outlined-basic" label="Image URL" variant="outlined" onChange={handleImageUrl}type="text"></TextField>
-        </Grid>
-        <Grid item xs={6}>
-          <TextField sx={{ m: 1, width: '35ch' }}  id="outlined-basic" label="Sex" variant="outlined" onChange={handleSex}type="text">2</TextField>
-        </Grid>
-        <Grid item xs={6}>
-          <TextField sx={{ m: 1, width: '35ch' }}  id="outlined-basic" label="Date" variant="outlined" onChange={handleDate}type="text"></TextField>
-        </Grid>
-        <Grid item xs={6}>
-          <TextField sx={{ m: 1, width: '35ch' }}  id="outlined-basic" label="BMI" variant="outlined" onChange={handleBmi}type="text"></TextField>
-        </Grid>
-        <Grid item xs={6}>
-          <TextField  sx={{ m: 1, width: '35ch' }} id="outlined-basic" label="Key Findings" variant="outlined" onChange={handleKeyfindings}type="text"></TextField>
-        </Grid>
-        <Grid item xs={6}>
-          <TextField sx={{ m: 1, width: '35ch' }}  id="outlined-basic" label="Zip Code" variant="outlined" onChange={handleZipCOde}type="text"></TextField>
-        </Grid>
-        <Grid item xs={6}>
-          <TextField sx={{ m: 1, width: '35ch' }}  id="outlined-basic" label="Brixia Score" variant="outlined" onChange={handleBrixia}type="text" ></TextField>
-        </Grid>
-      </Grid>
-    </Box>
-    </FormControl>
+      </Box>
+    </form>
     </div>
   )
 }

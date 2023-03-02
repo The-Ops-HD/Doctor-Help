@@ -4,7 +4,7 @@ import Header from './components/Header.jsx'
 import AdminMode from './components/AdminMode';
 import Examinations from './components/Examinations';
 import PatientExams from './components/PatientExams';
-import PatientDetails from './components/PatientDetails';
+import PatientExamDetails from './components/PatientExamDetails';
 import CreateExam from './components/CreateExam';
 import Footer from './components/Footer';
 import './App.css';
@@ -42,7 +42,7 @@ function App() {
         />
         <Route 
           path={'/details/:id'} 
-          element={<PatientDetails 
+          element={<PatientExamDetails 
             setHeader={setHeader} 
             setVariable={setVariable}/>
           }

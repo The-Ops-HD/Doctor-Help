@@ -1,0 +1,10 @@
+.patient-info {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.mui-table-exam {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}

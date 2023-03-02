@@ -23,7 +23,7 @@ function ExamTable() {
   
   return (
     <div className="mui-table-main">
-      <TableContainer sx={{ maxWidth: 900 }} component={Paper}>
+      <TableContainer sx={{ maxWidth: 1000 }} component={Paper}>
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -53,7 +53,7 @@ function ExamTable() {
                     </Link>
                   </TableCell>
                   <TableCell>
-                    <img src={patient.ImageUrl} alt="x-ray" style={{height: '50px', width: '50px'}}/>
+                    <img src={patient.ImageUrl} alt="x-ray" style={{height: '100px', width: '100px'}}/>
                   </TableCell>
                   <TableCell align="left">{patient.KeyFindings}</TableCell>
                   <TableCell align="left">{patient.BrixiaScore}</TableCell>

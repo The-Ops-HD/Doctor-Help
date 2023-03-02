@@ -1,0 +1,41 @@
+.patient-exam-container {
+  display: flex;
+  justify-content: center;
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  width: 55%;
+}
+
+.patient-info-col {
+  text-align: center;
+}
+
+.patient-data-container {
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  height: 300px;
+  text-align: left;
+}
+
+.data-box {
+  background-color: #ddeba4;
+  width: 297px;
+  border-radius: 3px;
+  padding: .5rem;
+}
+
+.exam-info-col {
+  text-align: center;
+}
+
+.diagnosis-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #ddeba4;
+  height: 80px;
+}

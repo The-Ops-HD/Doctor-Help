@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from 'axios';
 import '../component-css/PatientExamDetails.css';
+import {useNavigate} from "react-router-dom";
+import { Button } from "@mui/material";
+
 
 function PatientDetails(props) {
   const [exam, setExam] = useState('');
   const {id} = useParams();
+  const navigate = useNavigate();
   
   useEffect(()=> {
     props.setVariable(3);
@@ -13,7 +17,10 @@ function PatientDetails(props) {
     .then(res => {
       setExam(res.data);
     })
-    .catch( err => console.log(err));
+    .catch( err => {
+      console.log(err)
+    
+    });
   }, []);
 
   const deleteData = () => {
@@ -22,6 +29,7 @@ function PatientDetails(props) {
         console.log(res);
         console.log('delete this!!!!')
         delete props.data;
+        navigate('/');
       })
       .catch((err) => {
         console.log(err);
@@ -64,7 +72,7 @@ function PatientDetails(props) {
               Brixia Score: {exam.BrixiaScore}
             </div>
           </div>
-          <button onClick={() => deleteData(exam.id)}>Delete</button>
+          <Button onClick={() => deleteData(exam.id)} sx={{  backgroundColor: '#b6bf88', ':hover': { bgcolor: 'red', color:'white'} }} variant="contained">Delete</Button>
         </div>
       </div>
     </div>

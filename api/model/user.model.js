@@ -6,45 +6,45 @@ const mongoose = require('mongoose');
 const PatientSchema = new mongoose.Schema({
 	PatientId: {
 	type: String,
-	required: [true],
+	required: [true, 'PatientId required.'],
 	minLength: [3],
 },
 	ExamID: {
 		type: String,
-		required: [true],
-    minLength: [3],
+		required: [true, 'Exam-ID required'],
+    minLength: [3, "EXAM-ID Must be at least 3 charcters"],
 	},
   Age:{
-    type: Number,
-    required: [true],
+    type: String,
+    required: [true, 'Age Required'],
   },
   ImageUrl:{
     type: String,
-    required: [true]
+    required: [true, 'Image Url Required']
   },
   Sex:{
     type: String,
-    required: [true]
+    required: [true, 'Enter Sex of patient']
   },
   Date:{
     type: String,
-    required: [true]
+    required: [true, 'Date required']
   },
   bmi: {
     type: String,
-    required: [true]
+    required: [true, 'Body Mass Index required']
   },
   KeyFindings: {
     type: String,
-    required: [true]
+    required: [true, 'Key Findings required']
   },
   ZipCode:{
-    type: Number,
-    required: [true]
+    type: String,
+    required: [true, 'ZipCode required']
   },
   BrixiaScore: {
     type: String,
-    required: [true]
+    required: [true, 'BrixiaScore required']
   },
 }, {timestamps : true})
 

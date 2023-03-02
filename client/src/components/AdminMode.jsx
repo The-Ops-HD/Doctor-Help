@@ -15,9 +15,9 @@ const AdminMode = (props) =>{
   
   return (
     <div>
-      <div className="create-exam-button">
+      <div className="create-exam-container">
         <button onClick={handleCreate}>
-          Add Exam
+          <p>Add Exam</p>
         </button>
       </div>
       <ExamTable/>

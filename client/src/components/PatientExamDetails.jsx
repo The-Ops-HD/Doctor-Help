@@ -15,6 +15,18 @@ function PatientDetails(props) {
     })
     .catch( err => console.log(err));
   }, []);
+
+  const deleteData = () => {
+    axios.delete(`http://localhost:9000/api/delete/${id}`)
+      .then((res) => {
+        console.log(res);
+        console.log('delete this!!!!')
+        delete props.data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
     
   return(
     <div className="patient-exam-container">
@@ -52,34 +64,10 @@ function PatientDetails(props) {
               Brixia Score: {exam.BrixiaScore}
             </div>
           </div>
+          <button onClick={() => deleteData(exam.id)}>Delete</button>
         </div>
       </div>
     </div>
-
-    // <div className="patientPage">
-    //   <div className="id">Patient ID: {exam.PatientId}</div>
-    //   <img 
-    //     className="image" 
-    //     src={exam.ImageUrl} 
-    //     alt="Patient-Detail"
-    //   />
-    //   <div className="InfoBox">
-    //     <p>Diagnosis: </p>
-    //     <ol>
-    //       <li>{exam.KeyFindings}</li>
-    //       <li>{exam.BrixiaScore}</li>
-    //     </ol>
-    //   </div>
-    //   <div className="leftSide">
-    //     <p>Personal Info:</p>
-    //     <ol className="List">
-    //       <li>Sex: {exam.Sex}</li>
-    //       <li>Age: {exam.Age}</li>
-    //       <li>Zip Code: {exam.ZipCode}</li>
-    //       <li>BMI: {exam.bmi}</li>
-    //     </ol>
-    //   </div>
-    // </div>
   )
 }
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../component-css/Header.css"
 
 function Header(props){
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ function Header(props){
   return (
     <div id="header-container">
       <div className="title" onClick={goHome}>{props.header}</div>
-      <button className="button" onClick={handleAdmin}>Enable Admin Mode</button>
+      <button className="button" onClick={handleAdmin}>Admin Mode</button>
     </div>
   )
 }

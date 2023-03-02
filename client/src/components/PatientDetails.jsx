@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from 'axios';
-import './PatientDetails.css';
+import '../component-css/PatientDetails.css';
 
 function PatientDetails(props) {
   const [exam, setExam] = useState('');

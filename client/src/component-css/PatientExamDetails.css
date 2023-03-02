@@ -6,7 +6,7 @@
 .info-container {
   display: flex;
   justify-content: space-between;
-  width: 55%;
+  width: 58%;
 }
 
 .patient-info-col {
@@ -33,9 +33,12 @@
 }
 
 .diagnosis-box {
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   background-color: #ddeba4;
-  height: 80px;
+  height: 225px;
+  width: 330px;
+  border-radius: 3px;
 }

@@ -22,7 +22,7 @@ function ExamTable() {
   }, []);
   
   return (
-    <div className="mui-table">
+    <div className="mui-table-main">
       <TableContainer sx={{ maxWidth: 900 }} component={Paper}>
         <Table aria-label="simple table">
           <TableHead>

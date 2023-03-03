@@ -12,7 +12,6 @@ function PatientDetails(props) {
   const navigate = useNavigate();
   
   useEffect(()=> {
-    props.setVariable(3);
     axios.get(`http://localhost:9000/api/getExam/${id}`)
     .then(res => {
       setExam(res.data);
@@ -35,8 +34,7 @@ function PatientDetails(props) {
         console.log(err);
       });
   };
-  const updatePage = () =>{
-      props.setDetails(exam)
+  const updatePage = (id) =>{
       navigate(`/update/${id}`)
   }
 
@@ -76,8 +74,8 @@ function PatientDetails(props) {
               Brixia Score: {exam.BrixiaScore}
             </div>
           </div>
-          <Button onClick={() => updatePage()} sx={{  backgroundColor: '#b6bf88', ':hover': { bgcolor: 'red', color:'white'} }} variant="contained">Update</Button>
-          <Button onClick={() => deleteData(exam.id)} sx={{  backgroundColor: '#b6bf88', ':hover': { bgcolor: 'red', color:'white'} }} variant="contained">Delete</Button>
+          <Button onClick={() => updatePage(exam._id)} sx={{  backgroundColor: '#b6bf88', ':hover': { bgcolor: 'red', color:'white'} }} variant="contained">Update</Button>
+          <Button onClick={() => deleteData(exam._id)} sx={{  backgroundColor: '#b6bf88', ':hover': { bgcolor: 'red', color:'white'} }} variant="contained">Delete</Button>
         </div>
       </div>
     </div>

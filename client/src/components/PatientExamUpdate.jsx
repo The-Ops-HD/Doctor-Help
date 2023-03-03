@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { FormControl } from '@mui/material';
 import Grid from '@mui/material/Grid';
@@ -8,25 +8,27 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button } from "@mui/material";
 
+
 // create a page that allows the user to edit the information
 //pass in that information that is used on the view page
 //add a save button that has an onClick handler, which will make the axios put require
 //use props as well
 //make this a form
 
-const UpdateForms = (props) => {
-    console.log(props.details)
-
-    const [PatientId, setPatientId] = useState(props.details.PatientId);
-    const [ExamID, setExamID] = useState(props.details.ExamID);
-    const [Age, setAge] = useState(props.details.Age);
-    const [ImageUrl, setImageUrl] = useState(props.details.ImageUrl);
-    const [Sex, setSex] = useState(props.details.Sex);
-    const [Date, setDate] = useState(props.details.Date);
-    const [bmi, setBmi] = useState(props.details.bmi);
-    const [KeyFindings, setKeyFindings] = useState(props.details.KeyFindings);
-    const [ZipCode, setZipCode] = useState(props.details.ZipCode);
-    const [BrixiaScore, setBrixiaScore] = useState(props.details.BrixiaScore);
+const UpdateForms = () => {
+    const navigate = useNavigate();
+    const {id} = useParams();
+    const [exam, setExam] = useState();
+    const [PatientId, setPatientId] = useState();
+    const [ExamID, setExamID] = useState();
+    const [Age, setAge] = useState();
+    const [ImageUrl, setImageUrl] = useState();
+    const [Sex, setSex] = useState();
+    const [Date, setDate] = useState();
+    const [bmi, setBmi] = useState();
+    const [KeyFindings, setKeyFindings] = useState();
+    const [ZipCode, setZipCode] = useState();
+    const [BrixiaScore, setBrixiaScore] = useState();
 
     const updatePatientId = (e) => {
         setPatientId(e.target.value);
@@ -60,29 +62,49 @@ const UpdateForms = (props) => {
         console.log(BrixiaScore)
     }
 
+    useEffect(()=> {
+      axios.get(`http://localhost:9000/api/getExam/${id}`)
+      .then(res => {
+        setPatientId(res.data.PatientId);
+        setExamID(res.data.ExamID);
+        setAge(res.data.Age);
+        setImageUrl(res.data.ImageUrl);
+        setSex(res.data.Sex);
+        setDate(res.data.Date);
+        setBmi(res.data.bmi);
+        setKeyFindings(res.data.KeyFindings);
+        setZipCode(res.data.ZipCode);
+        setBrixiaScore(res.data.BrixiaScore);
+        console.log(res.data)
+      })
+      .catch( err => {
+        console.log(err)
+      
+      });
+    }, []);
+  
     const updateHandler = (e) => {
         e.preventDefault();
-        console.log("Gotten this far!")
-        axios.put(`http://localhost:9000/api/edit/${PatientId}`, {
-            PatientId,
-            ExamID,
-            Age,
-            ImageUrl,
-            Sex,
-            Date,
-            bmi,
-            KeyFindings,
-            ZipCode,
-            BrixiaScore,
+        axios.put(`http://localhost:9000/api/edit/${id}`, {
+          PatientId,
+          ExamID,
+          Age,
+          ImageUrl,
+          Sex,
+          Date,
+          bmi,
+          KeyFindings,
+          ZipCode,
+          BrixiaScore,
         })
             .then((res) => {
                 console.log('SUCCESS', res);
+                navigate(`/details/${id}`);
             })
             .catch((err) => {
                 console.log('ERROR!', err.response);
             })
     }
-    console.log('this is the id: ', PatientId)
 
     return (
         <div className="patient-exam-container">
@@ -93,34 +115,34 @@ const UpdateForms = (props) => {
                     </div>
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                         <Grid item xs={6}>
-                            <TextField sx={{ m: 1, width: '35ch' }} id="outlined-basic" label="Patient ID" variant="outlined" onChange={updatePatientId} type="text" value={PatientId}></TextField>
+                            <TextField sx={{ m: 1, width: '35ch' }} id="outlined-basic" label="Patient ID" variant="outlined" onChange={updatePatientId} type="text" placeholder={PatientId}></TextField>
                         </Grid>
                         <Grid item xs={6}>
-                            <TextField sx={{ m: 1, width: '35ch' }} id="outlined-basic" label="EXAM ID" variant="outlined" onChange={updateExam} type="text" value={ExamID}></TextField>
+                            <TextField sx={{ m: 1, width: '35ch' }} id="outlined-basic" label="EXAM ID" variant="outlined" onChange={updateExam} type="text" placeholder={ExamID}></TextField>
                         </Grid>
                         <Grid item xs={6}>
-                            <TextField sx={{ m: 1, width: '35ch' }} id="outlined-basic" label="Age" variant="outlined" onChange={updateAge} type="text" value={Age}></TextField>
+                            <TextField sx={{ m: 1, width: '35ch' }} id="outlined-basic" label="Age" variant="outlined" onChange={updateAge} type="text" placeholder={Age}></TextField>
                         </Grid>
                         <Grid item xs={6}>
-                            <TextField sx={{ m: 1, width: '35ch' }} id="outlined-basic" label="Image URL" variant="outlined" onChange={updateImageUrl} type="text" value={ImageUrl}></TextField>
+                            <TextField sx={{ m: 1, width: '35ch' }} id="outlined-basic" label="Image URL" variant="outlined" onChange={updateImageUrl} type="text" placeholder={ImageUrl}></TextField>
                         </Grid>
                         <Grid item xs={6}>
-                            <TextField sx={{ m: 1, width: '35ch' }} id="outlined-basic" label="Sex" variant="outlined" onChange={updateSex} type="text" value={Sex}></TextField>
+                            <TextField sx={{ m: 1, width: '35ch' }} id="outlined-basic" label="Sex" variant="outlined" onChange={updateSex} type="text" placeholder={Sex}></TextField>
                         </Grid>
                         <Grid item xs={6}>
-                            <TextField sx={{ m: 1, width: '35ch' }} id="outlined-basic" label="Date" variant="outlined" onChange={updateDate} type="text" value={Date}></TextField>
+                            <TextField sx={{ m: 1, width: '35ch' }} id="outlined-basic" label="Date" variant="outlined" onChange={updateDate} type="text" placeholder={Date}></TextField>
                         </Grid>
                         <Grid item xs={6}>
-                            <TextField sx={{ m: 1, width: '35ch' }} id="outlined-basic" label="BMI" variant="outlined" onChange={updateBmi} type="text" value={bmi}></TextField>
+                            <TextField sx={{ m: 1, width: '35ch' }} id="outlined-basic" label="BMI" variant="outlined" onChange={updateBmi} type="text" placeholder={bmi}></TextField>
                         </Grid>
                         <Grid item xs={6}>
-                            <TextField sx={{ m: 1, width: '35ch' }} id="outlined-basic" label="Key Findings" variant="outlined" onChange={updateKeyfindings} type="text" value={KeyFindings}></TextField>
+                            <TextField sx={{ m: 1, width: '35ch' }} id="outlined-basic" label="Key Findings" variant="outlined" onChange={updateKeyfindings} type="text" placeholder={KeyFindings}></TextField>
                         </Grid>
                         <Grid item xs={6}>
-                            <TextField sx={{ m: 1, width: '35ch' }} id="outlined-basic" label="Zip Code" variant="outlined" onChange={updateZipCOde} type="text" value={ZipCode}></TextField>
+                            <TextField sx={{ m: 1, width: '35ch' }} id="outlined-basic" label="Zip Code" variant="outlined" onChange={updateZipCOde} type="text" placeholder={ZipCode}></TextField>
                         </Grid>
                         <Grid item xs={6}>
-                            <TextField sx={{ m: 1, width: '35ch' }} id="outlined-basic" label="Brixia Score" variant="outlined" onChange={updateBrixia} type="text" value={BrixiaScore}></TextField>
+                            <TextField sx={{ m: 1, width: '35ch' }} id="outlined-basic" label="Brixia Score" variant="outlined" onChange={updateBrixia} type="text" placeholder={BrixiaScore}></TextField>
                         </Grid>
                     </Grid>
                 </Box>

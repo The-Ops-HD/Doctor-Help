@@ -43,7 +43,6 @@ module.exports = {
         .catch(err => response.json(err))
       },
     findPatientId: (request, response)=> {
-      const filter = {};
       Patient.find({PatientId:request.params.PatientId})
         .then( allPatients => {
           console.log(allPatients);
@@ -56,7 +55,10 @@ module.exports = {
       },
       findOneExam: (request, response) => {
         Patient.findOne({_id:request.params.id})
-          .then(patient=> response.json(patient))
+          .then(patient=> {
+            response.json(patient)
+            console.log(patient)
+          })
           .catch(err => response.status(400).json(err))
       },
       

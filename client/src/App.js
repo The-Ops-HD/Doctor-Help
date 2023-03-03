@@ -8,8 +8,10 @@ import PatientExamDetails from './components/PatientExamDetails';
 import CreateExam from './components/CreateExam';
 import Footer from './components/Footer';
 import './App.css';
+import UpdateForms from './components/PatientExamUpdate.jsx';
 
 function App() {
+  const [details, setDetails] = useState([])
   const [header, setHeader] = useState('Doctor Help');
   const [pathName, setPath] = useState('');
   const [variable , setVariable] = useState(0)
@@ -32,7 +34,10 @@ function App() {
             setVariable={setVariable}/>
           }
         />
-        {/* <Route path={'/update/:id'} element={<Update/>}/> */}
+        <Route
+          path={'/update/:id'} 
+          element={<UpdateForms details = {details}/>}
+          />
         <Route 
           path={'/admin'} 
           element={<AdminMode 
@@ -42,7 +47,7 @@ function App() {
         />
         <Route 
           path={'/details/:id'} 
-          element={<PatientExamDetails 
+          element={<PatientExamDetails setDetails = {setDetails} 
             setHeader={setHeader} 
             setVariable={setVariable}/>
           }

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import '../component-css/PatientExamDetails.css';
+
 
 function PatientDetails(props) {
   const [exam, setExam] = useState('');
   const {id} = useParams();
+  const navigate = useNavigate();
   
   useEffect(()=> {
     props.setVariable(3);
@@ -27,7 +29,11 @@ function PatientDetails(props) {
         console.log(err);
       });
   };
-    
+  const updatePage = () =>{
+      props.setDetails(exam)
+      navigate(`/update/${id}`)
+  }
+
   return(
     <div className="patient-exam-container">
       <div className="info-container">
@@ -64,6 +70,7 @@ function PatientDetails(props) {
               Brixia Score: {exam.BrixiaScore}
             </div>
           </div>
+          <button onClick={() => updatePage()}>Update</button>
           <button onClick={() => deleteData(exam.id)}>Delete</button>
         </div>
       </div>

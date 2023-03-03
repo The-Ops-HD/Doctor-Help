@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import '../component-css/PatientExamDetails.css';
 import {useNavigate} from "react-router-dom";
 import { Button } from "@mui/material";
+
 
 
 function PatientDetails(props) {
@@ -35,7 +36,11 @@ function PatientDetails(props) {
         console.log(err);
       });
   };
-    
+  const updatePage = () =>{
+      props.setDetails(exam)
+      navigate(`/update/${id}`)
+  }
+
   return(
     <div className="patient-exam-container">
       <div className="info-container">
@@ -72,6 +77,8 @@ function PatientDetails(props) {
               Brixia Score: {exam.BrixiaScore}
             </div>
           </div>
+
+          <Button onClick={() => updatePage()} sx={{  backgroundColor: '#b6bf88', ':hover': { bgcolor: 'red', color:'white'} }} variant="contained">Update</Button>
           <Button onClick={() => deleteData(exam.id)} sx={{  backgroundColor: '#b6bf88', ':hover': { bgcolor: 'red', color:'white'} }} variant="contained">Delete</Button>
         </div>
       </div>

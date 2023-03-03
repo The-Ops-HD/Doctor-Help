@@ -9,6 +9,8 @@ import { Button } from "@mui/material";
 
 
 const CreatePost = (props) => {
+  const [errors, setErrors] = useState([]);
+  // const [validator, setValidator] = useState=(0);
   const [PatientId, setPatientId] = useState();
   const [ExamID, setExamID] = useState();
   const [Age, setAge] = useState();
@@ -19,6 +21,7 @@ const CreatePost = (props) => {
   const [KeyFindings, setKeyFindings] = useState();
   const [ZipCode, setZipCode] = useState();
   const [BrixiaScore, setBrixiaScore] = useState();
+  const [pidError, setPidError] = useState();
   
   useEffect( () => {
     props.setHeader("Create Exam");
@@ -59,7 +62,6 @@ const CreatePost = (props) => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    console.log("GETS HERE")
     axios.post('http://localhost:9000/api/create', {
       PatientId,
       ExamID,
@@ -77,6 +79,8 @@ const CreatePost = (props) => {
     })
     .catch((err) => {
       console.log('ERROR!', err.response);
+      // setValidator(err);
+			setErrors(err.response.data.errors);
     })
   }
 
@@ -85,7 +89,17 @@ const CreatePost = (props) => {
     <form onSubmit={onSubmitHandler} style={{width: "82%", marginLeft: "11%"}}>
       <Box pl={10} sx={{ width: '100%' }}>
         <div style={{textAlign: "center", marginLeft:"-210px", marginTop:"15px"}}>
-        <Button type="submit" sx={{ backgroundColor: '#b6bf88' }} variant="contained">Create</Button>
+        <Button type="submit" sx={{ backgroundColor: '#b6bf88' , ':hover': { bgcolor: '#578188', color:'white'} }} variant="contained">Create</Button>
+        </div>
+        <div>
+          {errors &&
+				Object.keys(errors).map((errKey, index) => {
+          return(
+            <div>
+            <p style={{color: "red"}} key= {index}>{errors[errKey].message}</p>
+            </div>
+          )
+          })}
         </div>
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           <Grid item xs={6}>

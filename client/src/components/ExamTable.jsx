@@ -10,12 +10,10 @@ import Paper from '@mui/material/Paper';
 import axios from "axios";
 import TextField from '@mui/material/TextField';
 import "../component-css/ExamTable.css"
-import { handleError } from "vue";
 
 function ExamTable() {
   const [patients, setPatients] = useState([]);
   const [data, setData] = useState([]);
-  const [input, setInput] = useState('');
   const [error ,setError] = useState('');
   useEffect( () => {
     axios.get('http://localhost:9000/api/getall')
@@ -27,8 +25,6 @@ function ExamTable() {
     .catch((err) => console.log(err.response));
   }, []);
   const SearchArray = (e) =>{
-    setInput(e.target.value);
-    console.log(e.target.value)
     const tempArray = data.filter(exam => 
       exam.Age.toLowerCase().includes(e.target.value.toLowerCase()) ||
       exam.Sex.toLowerCase().includes(e.target.value.toLowerCase().toLowerCase()) ||

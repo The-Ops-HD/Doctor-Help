@@ -8,22 +8,60 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import axios from "axios";
+import TextField from '@mui/material/TextField';
 import "../component-css/ExamTable.css"
+import { handleError } from "vue";
 
 function ExamTable() {
   const [patients, setPatients] = useState([]);
+  const [data, setData] = useState([]);
+  const [input, setInput] = useState('');
+  const [error ,setError] = useState('');
   useEffect( () => {
     axios.get('http://localhost:9000/api/getall')
     .then((response) => {
       const result = response.data;
       setPatients(result);
+      setData(result);
     })
     .catch((err) => console.log(err.response));
   }, []);
+  const SearchArray = (e) =>{
+    setInput(e.target.value);
+    console.log(e.target.value)
+    const tempArray = data.filter(exam => 
+      exam.Age.toLowerCase().includes(e.target.value.toLowerCase()) ||
+      exam.Sex.toLowerCase().includes(e.target.value.toLowerCase().toLowerCase()) ||
+      exam.BrixiaScore.toLowerCase().includes(e.target.value.toLowerCase()) ||
+      exam.PatientId.toLowerCase().includes(e.target.value.toLowerCase()) ||
+      exam.Age.toLowerCase().includes(e.target.value.toLowerCase()) ||
+      exam.KeyFindings.toLowerCase().includes(e.target.value.toLowerCase()) ||
+      exam.bmi.toLowerCase().includes(e.target.value.toLowerCase()) ||
+      exam.ExamID.toLowerCase().includes(e.target.value.toLowerCase()) ||
+      exam.ZipCode.toLowerCase().includes(e.target.value.toLowerCase())
+      )
+      setPatients(tempArray);
+      if(patients.length == 0 && e.target.value == 0){
+        setPatients(data)
+        setError('');
+      }else if (tempArray.length == 0 && patients.length == 0){
+        setError("No Result Found")
+      }if(tempArray.length> 0){
+        setError('')
+      }
+  }
   
   return (
     <div className="mui-table-main">
       <TableContainer sx={{ maxWidth: 1000 }} component={Paper}>
+        <div style={{textAlign: 'center'}}>
+          <TextField id="outlined-basic" label="Search" variant="outlined" onChange={SearchArray} style={{marginTop:'5px'}} >
+          </TextField>
+          {
+            error ? <p style={{color: "red"}}> {error} </p>:
+            ''
+          }
+        </div>
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>

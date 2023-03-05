@@ -25,8 +25,6 @@ function PatientDetails(props) {
   const deleteData = () => {
     axios.delete(`http://localhost:9000/api/delete/${id}`)
       .then((res) => {
-        console.log(res);
-        console.log('delete this!!!!')
         delete props.data;
         navigate('/');
       })
@@ -76,7 +74,7 @@ function PatientDetails(props) {
               Brixia Score: {exam.BrixiaScore}
             </div>
           </div>
-          <Button onClick={() => updatePage(exam._id)} sx={{  backgroundColor: '#b6bf88', ':hover': { bgcolor: '#b6bf88', color:'white'} }} variant="contained">Update</Button>
+          <Button onClick={() => updatePage(exam._id)} sx={{  backgroundColor: '#b6bf88', ':hover': { bgcolor: '#578188', color:'white'} }} variant="contained">Update</Button>
           <Button onClick={() => deleteData(exam._id)} sx={{  backgroundColor: '#b6bf88', ':hover': { bgcolor: 'red', color:'white'} }} variant="contained">Delete</Button>
         </div>
       </div>

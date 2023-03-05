@@ -35,7 +35,9 @@ function PatientDetails(props) {
       });
   };
   const updatePage = (id) =>{
-      navigate(`/update/${id}`)
+    props.setDetails(exam);
+    console.log(props.details);
+      navigate(`/update/${id}`);
   }
 
   return(

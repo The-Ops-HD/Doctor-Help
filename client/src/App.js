@@ -36,7 +36,9 @@ function App() {
         />
         <Route
           path={'/update/:id'} 
-          element={<UpdateForms details = {details}/>}
+          element={<UpdateForms 
+            setDetails={setDetails} 
+            details = {details}/>}
           />
         <Route 
           path={'/admin'} 
@@ -47,7 +49,9 @@ function App() {
         />
         <Route 
           path={'/details/:id'} 
-          element={<PatientExamDetails setDetails = {setDetails} 
+          element={<PatientExamDetails 
+            setDetails = {setDetails} 
+            details = {details}
             setHeader={setHeader} 
             setVariable={setVariable}/>
           }

@@ -25,7 +25,7 @@ const UpdateForms = ({details, setDetails}) => {
             [event.target.name] : event.target.value,
         })
     }
-
+   
 
      
     const updateHandler = (e) => {
@@ -47,7 +47,7 @@ const UpdateForms = ({details, setDetails}) => {
             <form onSubmit={updateHandler} style={{ width: "82%", marginLeft: "11%" }}>
                 <Box pl={10} sx={{ width: '100%' }}>
                     <div style={{ textAlign: "center", marginLeft: "-210px", marginTop: "15px" }}>
-                        <Button type="submit" sx={{  backgroundColor: '#b6bf88' }} variant="contained">Update</Button>
+                        <Button type="submit" sx={{ backgroundColor: '#b6bf88', ':hover': { bgcolor: '#578188', color:'white'}  }} variant="contained">Update</Button>
                     </div>
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                         <Grid item xs={6}>

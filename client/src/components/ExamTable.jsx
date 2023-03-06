@@ -15,6 +15,7 @@ function ExamTable() {
   const [patients, setPatients] = useState([]);
   const [data, setData] = useState([]);
   const [error ,setError] = useState('');
+
   useEffect( () => {
     axios.get('http://localhost:9000/api/getall')
     .then((response) => {
@@ -24,7 +25,8 @@ function ExamTable() {
     })
     .catch((err) => console.log(err.response));
   }, []);
-  const SearchArray = (e) =>{
+
+  const SearchArray = (e) => {
     const tempArray = data.filter(exam => 
       exam.Age.toLowerCase().includes(e.target.value.toLowerCase()) ||
       exam.Sex.toLowerCase().includes(e.target.value.toLowerCase().toLowerCase()) ||
@@ -35,27 +37,34 @@ function ExamTable() {
       exam.bmi.toLowerCase().includes(e.target.value.toLowerCase()) ||
       exam.ExamID.toLowerCase().includes(e.target.value.toLowerCase()) ||
       exam.ZipCode.toLowerCase().includes(e.target.value.toLowerCase())
-      )
-      setPatients(tempArray);
-      if(patients.length == 0 && e.target.value == 0){
-        setPatients(data)
-        setError('');
-      }else if (tempArray.length == 0 && patients.length == 0){
-        setError("No Result Found")
-      }if(tempArray.length> 0){
-        setError('')
-      }
+    )
+    setPatients(tempArray);
+    if(patients.length === 0 && e.target.value === 0){
+      setPatients(data)
+      setError('');
+    } else if(tempArray.length === 0){
+      setError("No Result Found")
+    } if(tempArray.length > 0){
+      setError('')
+    }
   }
   
   return (
     <div className="mui-table-main">
       <TableContainer sx={{ maxWidth: 1000 }} component={Paper}>
         <div style={{textAlign: 'center'}}>
-          <TextField id="outlined-basic" label="Search" variant="outlined" onChange={SearchArray} style={{marginTop:'5px'}} >
+          <TextField 
+            id="outlined-basic" 
+            label="Search" 
+            variant="outlined" 
+            onChange={SearchArray} 
+            style={{marginTop:'1.5rem'}} 
+          >
           </TextField>
           {
-            error ? <p style={{color: "red"}}> {error} </p>:
-            ''
+            error 
+            ? <p style={{color: "red"}}> {error} </p> 
+            : ''
           }
         </div>
         <Table aria-label="simple table">

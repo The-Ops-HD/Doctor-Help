@@ -30,6 +30,9 @@
 
 .exam-info-col {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .diagnosis-box {
@@ -41,4 +44,11 @@
   height: 225px;
   width: 330px;
   border-radius: 3px;
+}
+
+.buttons {
+  margin-top: 1rem;
+  width: 70%;
+  display: flex;
+  justify-content: space-evenly;
 }

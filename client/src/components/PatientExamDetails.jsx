@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 import axios from 'axios';
 import '../component-css/PatientExamDetails.css';
-import { Button } from "@mui/material";
-
-
 
 function PatientDetails(props) {
   const [exam, setExam] = useState('');
@@ -13,18 +11,17 @@ function PatientDetails(props) {
   
   useEffect(()=> {
     axios.get(`http://localhost:9000/api/getExam/${id}`)
-    .then(res => {
-      setExam(res.data);
-    })
-    .catch( err => {
-      console.log(err)
-    
-    });
+      .then(res => {
+        setExam(res.data);
+      })
+      .catch(err => {
+        console.log(err)    
+      });
   }, []);
 
   const deleteData = () => {
     axios.delete(`http://localhost:9000/api/delete/${id}`)
-      .then((res) => {
+      .then(() => {
         delete props.data;
         navigate('/');
       })
@@ -32,10 +29,11 @@ function PatientDetails(props) {
         console.log(err);
       });
   };
+
   const updatePage = (id) =>{
     props.setDetails(exam);
     console.log(props.details);
-      navigate(`/update/${id}`);
+    navigate(`/update/${id}`);
   }
 
   return(
@@ -74,8 +72,36 @@ function PatientDetails(props) {
               Brixia Score: {exam.BrixiaScore}
             </div>
           </div>
-          <Button onClick={() => updatePage(exam._id)} sx={{  backgroundColor: '#b6bf88', ':hover': { bgcolor: '#578188', color:'white'} }} variant="contained">Update</Button>
-          <Button onClick={() => deleteData(exam._id)} sx={{  backgroundColor: '#b6bf88', ':hover': { bgcolor: 'red', color:'white'} }} variant="contained">Delete</Button>
+          <div className="buttons">  
+            <Button
+              className="update-button"
+              onClick={() => updatePage(exam._id)} 
+              sx={{ 
+                backgroundColor: '#578188',
+                ':hover': { 
+                  bgcolor: '#3b5559',
+                  color: 'white'
+                }
+              }} 
+              variant="contained"
+            >
+              Update
+            </Button>
+            <Button
+              className="delete-button"
+              onClick={() => deleteData(exam._id)} 
+              sx={{ 
+                backgroundColor: '#D42A2D',
+                ':hover': { 
+                  bgcolor: '#901C1E',
+                  color: 'white'
+                }
+              }} 
+              variant="contained"
+            >
+              Delete
+            </Button>
+          </div>
         </div>
       </div>
     </div>

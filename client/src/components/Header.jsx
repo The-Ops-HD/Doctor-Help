@@ -19,6 +19,7 @@ function Header(props){
         className="admin-mode-button"
         onClick={handleAdmin}
         sx={{ 
+          textTransform: "none",
           backgroundColor: '#578188',
           marginRight: '10rem',
           ':hover': { 

@@ -76,7 +76,8 @@ function PatientDetails(props) {
             <Button
               className="update-button"
               onClick={() => updatePage(exam._id)} 
-              sx={{ 
+              sx={{
+                textTransform: "none", 
                 backgroundColor: '#578188',
                 ':hover': { 
                   bgcolor: '#3b5559',
@@ -90,7 +91,8 @@ function PatientDetails(props) {
             <Button
               className="delete-button"
               onClick={() => deleteData(exam._id)} 
-              sx={{ 
+              sx={{
+                textTransform: "none",
                 backgroundColor: '#D42A2D',
                 ':hover': { 
                   bgcolor: '#901C1E',

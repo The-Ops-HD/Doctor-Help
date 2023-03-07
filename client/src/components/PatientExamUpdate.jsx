@@ -20,6 +20,8 @@ const UpdateForms = ({details, setDetails}) => {
 
 
     function handleChange(event){
+        console.log('this is the event: ', event)
+        console.log('the deets are: ', details)
         setDetails({
             ...details,
             [event.target.name] : event.target.value,
@@ -47,7 +49,7 @@ const UpdateForms = ({details, setDetails}) => {
             <form onSubmit={updateHandler} style={{ width: "82%", marginLeft: "11%" }}>
                 <Box pl={10} sx={{ width: '100%' }}>
                     <div style={{ textAlign: "center", marginLeft: "-210px", marginTop: "15px" }}>
-                        <Button type="submit" sx={{ backgroundColor: '#b6bf88', ':hover': { bgcolor: '#578188', color:'white'}  }} variant="contained">Update</Button>
+                        <Button type="submit" sx={{ backgroundColor: '#b6bf88', ':hover': { bgcolor: '#578188', color:'white'}  }} onClick={() => handleChange()}variant="contained">Update</Button>
                     </div>
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                         <Grid item xs={6}>

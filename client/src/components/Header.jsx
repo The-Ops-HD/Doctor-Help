@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 import "../component-css/Header.css"
 
 function Header(props){
@@ -14,7 +15,21 @@ function Header(props){
   return (
     <div id="header-container">
       <div className="title" onClick={goHome}>{props.header}</div>
-      <button className="button" onClick={handleAdmin}>Admin Mode</button>
+      <Button
+        className="admin-mode-button"
+        onClick={handleAdmin}
+        sx={{ 
+          backgroundColor: '#578188',
+          marginRight: '10rem',
+          ':hover': { 
+            bgcolor: '#3b5559',
+            color: 'white'
+          }
+        }}
+        variant="contained"
+      >
+        Admin Mode
+      </Button>
     </div>
   )
 }

@@ -21,19 +21,3 @@
   text-shadow: 0px 3px 2px #808080;
   cursor: pointer;
 }
-
-.button {
-  background-color: #578188;
-  color: #f5f5f5;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0px 2px 1px #808080;
-  margin-right: 10rem;
-  border-radius: 8px;
-  height: 35px;
-  width: 110px;
-}
-
-.button:hover {
-  background-color: #3b5559;
-}

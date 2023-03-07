@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
+import AddIcon from '@mui/icons-material/Add';
 import ExamTable from "./ExamTable";
 import "../component-css/AdminMode.css"
 
@@ -16,9 +18,20 @@ const AdminMode = (props) =>{
   return (
     <div>
       <div className="create-exam-container">
-        <button onClick={handleCreate}>
-          <p>Add Exam</p>
-        </button>
+        <Button
+          onClick={handleCreate}
+          endIcon={<AddIcon />}
+          sx={{
+            textTransform: "none",
+            backgroundColor: "#578188",
+            ":hover":{
+              bgcolor: "#3b5559"
+            }
+          }}
+          variant="contained"
+        >
+          Add Exam
+        </Button>
       </div>
       <ExamTable/>
     </div>

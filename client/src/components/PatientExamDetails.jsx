@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Button } from "@mui/material";
 import axios from 'axios';
+import { Button } from "@mui/material";
 import '../component-css/PatientExamDetails.css';
 
 function PatientDetails(props) {

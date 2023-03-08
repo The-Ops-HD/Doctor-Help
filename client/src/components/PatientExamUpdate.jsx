@@ -1,11 +1,8 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from 'axios';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
 import { Button } from "@mui/material";
+import TextField from '@mui/material/TextField';
 import '../component-css/PatientExamUpdate.css'
 
 // create a page that allows the user to edit the information

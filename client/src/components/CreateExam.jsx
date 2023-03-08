@@ -96,7 +96,8 @@ const CreatePost = (props) => {
       <div className="create-button">
         <Button
           type="submit" 
-          sx={{ 
+          sx={{
+            textTransform: 'none',
             backgroundColor: '#578188' ,
             ':hover': { 
               bgcolor: '#3b5559', 

@@ -1,0 +1,23 @@
+.update-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.update-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.update-form {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.form-cols {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

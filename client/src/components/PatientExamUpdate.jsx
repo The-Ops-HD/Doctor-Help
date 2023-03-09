@@ -4,6 +4,8 @@ import axios from 'axios';
 import { Button } from "@mui/material";
 import TextField from '@mui/material/TextField';
 import '../component-css/PatientExamUpdate.css'
+import { useState } from "react";
+import { useEffect } from "react";
 
 // create a page that allows the user to edit the information
 //pass in that information that is used on the view page
@@ -14,17 +16,78 @@ import '../component-css/PatientExamUpdate.css'
 const UpdateForms = ({details, setDetails}) => {
   const navigate = useNavigate();
   const {id} = useParams();
-
-  function handleChange(event){
-    setDetails({
-      ...details,
-      [event.target.name]: event.target.value,
-    })
-  }
+  const [PatientId, setPatientId] = useState();
+  const [ExamID, setExamID] = useState();
+  const [Age, setAge] = useState();
+  const [ImageUrl, setImageUrl] = useState();
+  const [Sex, setSex] = useState();
+  const [Date, setDate] = useState();
+  const [bmi, setBmi] = useState();
+  const [KeyFindings, setKeyFindings] = useState();
+  const [ZipCode, setZipCode] = useState();
+  const [BrixiaScore, setBrixiaScore] = useState();
   
+  
+
+  useEffect( () => {
+    setPatientId(details.PatientId)
+    setExamID(details.ExamID)
+    setAge(details.Age)
+    setImageUrl(details.ImageUrl)
+    setSex(details.Sex)
+    setDate(details.Date)
+    setBmi(details.bmi)
+    setKeyFindings(details.KeyFindings)
+    setZipCode(details.ZipCode)
+    setBrixiaScore(details.BrixiaScore)
+  }, []);
+
+  const handlePatientId = (e) => {
+    setPatientId(e.target.value)
+  }
+  const handleExam = (e) => {
+    setExamID(e.target.value)
+  }
+  const handleAge = (e) => {
+    setAge(e.target.value)
+  }
+  const handleImage = (e) => {
+    setImageUrl(e.target.value)
+  }
+  const handleSex = (e) => {
+    setSex(e.target.value)
+  }
+  const handleDate = (e) => {
+    setDate(e.target.value)
+  }
+  const handlebmi = (e) => {
+    setBmi(e.target.value)
+  }
+  const handleKeyFindings = (e) => {
+    setKeyFindings(e.target.value)
+  }
+  const handleZipCode = (e) => {
+    setZipCode(e.target.value)
+  }
+  const handleBrixiaScore = (e) => {
+    setBrixiaScore(e.target.value)
+  }
+
   const updateHandler = (e) => {
     e.preventDefault();
-    axios.put(`http://localhost:9000/api/edit/${id}`, {details})
+    axios.put(`http://localhost:9000/api/edit/${id}`, {
+      PatientId,
+      ExamID,
+      Age,
+      ImageUrl,
+      Sex,
+      Date,
+      bmi,
+      KeyFindings,
+      ZipCode,
+      BrixiaScore,
+    }
+    )
       .then((res) => {
         console.log('SUCCESS', res);
         navigate(`/details/${id}`);
@@ -35,7 +98,8 @@ const UpdateForms = ({details, setDetails}) => {
   }
 
   return (
-    <div className="update-form-container">
+    <div>
+      <form className="update-form-container"> 
       <div className="update-button">
         <Button
           type="submit"
@@ -52,7 +116,7 @@ const UpdateForms = ({details, setDetails}) => {
           Update
         </Button>
       </div>
-      <form 
+      <div 
         className="update-form"
         onSubmit={updateHandler} 
         style={{ width: "75%" }}
@@ -63,9 +127,9 @@ const UpdateForms = ({details, setDetails}) => {
             id="outlined-basic" 
             label="Patient ID" 
             variant="outlined" 
-            onChange={handleChange} 
+            onChange={handlePatientId}
             type="text"
-            value={details.PatientId} 
+            value={PatientId} 
             name={"PatientId"}
           ></TextField>
           <TextField 
@@ -73,9 +137,9 @@ const UpdateForms = ({details, setDetails}) => {
             id="outlined-basic" 
             label="Age" 
             variant="outlined" 
-            onChange={handleChange} 
+            onChange={handleAge} 
             type="text"
-            value={details.Age} 
+            value={Age} 
             name={"Age"}
           ></TextField>
           <TextField 
@@ -83,9 +147,9 @@ const UpdateForms = ({details, setDetails}) => {
             id="outlined-basic" 
             label="Sex" 
             variant="outlined" 
-            onChange={handleChange}
+            onChange={handleSex}
             type="text"
-            value={details.Sex}
+            value={Sex}
             name={"Sex"}
           ></TextField>
           <TextField 
@@ -93,9 +157,9 @@ const UpdateForms = ({details, setDetails}) => {
             id="outlined-basic" 
             label="BMI" 
             variant="outlined" 
-            onChange={handleChange}
+            onChange={handlebmi}
             type="text"
-            value={details.bmi} 
+            value={bmi} 
             name={"bmi"}
           ></TextField>
           <TextField 
@@ -103,9 +167,9 @@ const UpdateForms = ({details, setDetails}) => {
             id="outlined-basic" 
             label="ZIP Code" 
             variant="outlined" 
-            onChange={handleChange}
+            onChange={handleZipCode}
             type="text"
-            value={details.ZipCode} 
+            value={ZipCode} 
             name={"ZipCode"}
           ></TextField>
         </div>
@@ -115,9 +179,9 @@ const UpdateForms = ({details, setDetails}) => {
             id="outlined-basic" 
             label="Exam ID" 
             variant="outlined" 
-            onChange={handleChange} 
+            onChange={handleExam} 
             type="text"
-            value={details.ExamID} 
+            value={ExamID} 
             name={"ExamID"}
           ></TextField>
           <TextField 
@@ -125,9 +189,9 @@ const UpdateForms = ({details, setDetails}) => {
             id="outlined-basic" 
             label="Image URL" 
             variant="outlined" 
-            onChange={handleChange}
+            onChange={handleImage}
             type="text"
-            value={details.ImageUrl} 
+            value={ImageUrl} 
             name={"ImageUrl"}
           ></TextField>
           <TextField 
@@ -135,9 +199,9 @@ const UpdateForms = ({details, setDetails}) => {
             id="outlined-basic" 
             label="Date" 
             variant="outlined" 
-            onChange={handleChange}
+            onChange={handleDate}
             type="text"
-            value={details.Date} 
+            value={Date} 
             name={"Date"}
           ></TextField>
           <TextField  
@@ -145,9 +209,9 @@ const UpdateForms = ({details, setDetails}) => {
             id="outlined-basic" 
             label="Key Findings" 
             variant="outlined" 
-            onChange={handleChange}
+            onChange={handleKeyFindings}
             type="text"
-            value={details.KeyFindings} 
+            value={KeyFindings} 
             name={"KeyFindings"}
           ></TextField>
           <TextField 
@@ -155,12 +219,13 @@ const UpdateForms = ({details, setDetails}) => {
             id="outlined-basic" 
             label="Brixia Score" 
             variant="outlined" 
-            onChange={handleChange}
+            onChange={handleBrixiaScore}
             type="text"
-            value={details.BrixiaScore} 
+            value={BrixiaScore} 
             name={"BrixiaScore"}
           ></TextField>
         </div>
+      </div>
       </form>
     </div>
   )

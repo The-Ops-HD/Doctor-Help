@@ -71,10 +71,12 @@ const UpdateForms = ({details, setDetails}) => {
   }
   const handleBrixiaScore = (e) => {
     setBrixiaScore(e.target.value)
+    console.log(BrixiaScore)
   }
 
   const updateHandler = (e) => {
     e.preventDefault();
+    console.log("Gets here")
     axios.put(`http://localhost:9000/api/edit/${id}`, {
       PatientId,
       ExamID,
@@ -90,6 +92,7 @@ const UpdateForms = ({details, setDetails}) => {
     )
       .then((res) => {
         console.log('SUCCESS', res);
+        console.log(id)
         navigate(`/details/${id}`);
       })
       .catch((err) => {
@@ -99,7 +102,7 @@ const UpdateForms = ({details, setDetails}) => {
 
   return (
     <div>
-      <form className="update-form-container"> 
+    <form className="update-form-container" onSubmit={updateHandler} > 
       <div className="update-button">
         <Button
           type="submit"
@@ -118,7 +121,6 @@ const UpdateForms = ({details, setDetails}) => {
       </div>
       <div 
         className="update-form"
-        onSubmit={updateHandler} 
         style={{ width: "75%" }}
       >
         <div className="form-cols">
@@ -226,7 +228,7 @@ const UpdateForms = ({details, setDetails}) => {
           ></TextField>
         </div>
       </div>
-      </form>
+    </form>
     </div>
   )
 }

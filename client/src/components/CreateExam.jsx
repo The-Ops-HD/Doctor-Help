@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import TextField from '@mui/material/TextField';
 import { Button } from "@mui/material";
@@ -18,6 +19,8 @@ const CreatePost = (props) => {
   const [ZipCode, setZipCode] = useState();
   const [BrixiaScore, setBrixiaScore] = useState();
   const [pidError, setPidError] = useState();
+
+  const navigate = useNavigate();
   
   useEffect(() => {
     props.setVariable(1);
@@ -85,12 +88,14 @@ const CreatePost = (props) => {
         // setValidator(err);
 			  setErrors(err.response.data.errors);
       })
+      navigate("/");
   }
 
   return (
     <div className="create-form-container">
       <div className="create-button">
-        <Button
+        <Button 
+          onClick={onSubmitHandler}
           type="submit" 
           sx={{
             textTransform: 'none',

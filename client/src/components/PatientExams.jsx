@@ -15,7 +15,7 @@ const PatientExams = (props) => {
   const [patients, setPatients] = useState([]);
   useEffect(()=> {
     props.setVariable(3);
-    axios.get(`http://localhost:9000/api/get/${PatientId}`)
+    axios.get(`https://doctorhelpbackend.onrender.com/api/get/${PatientId}`)
     .then(res => {
       const result = res.data;
       setPatients(result);

@@ -68,7 +68,7 @@ const CreatePost = (props) => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:9000/api/create', {
+    axios.post('https://doctorhelpbackend.onrender.com/api/create', {
       PatientId,
       ExamID,
       Age,

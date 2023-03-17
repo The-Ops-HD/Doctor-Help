@@ -10,7 +10,7 @@ function PatientDetails(props) {
   const navigate = useNavigate();
   
   useEffect(()=> {
-    axios.get(`http://localhost:9000/api/getExam/${id}`)
+    axios.get(`https://doctorhelpbackend.onrender.com/api/getExam/${id}`)
       .then(res => {
         setExam(res.data);
       })
@@ -20,7 +20,7 @@ function PatientDetails(props) {
   }, []);
 
   const deleteData = () => {
-    axios.delete(`http://localhost:9000/api/delete/${id}`)
+    axios.delete(`https://doctorhelpbackend.onrender.com/api/delete/${id}`)
       .then(() => {
         delete props.data;
         navigate('/');

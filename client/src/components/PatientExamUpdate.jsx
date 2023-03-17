@@ -77,7 +77,7 @@ const UpdateForms = ({details, setDetails}) => {
   const updateHandler = (e) => {
     e.preventDefault();
     console.log("Gets here")
-    axios.put(`http://localhost:9000/api/edit/${id}`, {
+    axios.put(`https://doctorhelpbackend.onrender.com/api/edit/${id}`, {
       PatientId,
       ExamID,
       Age,

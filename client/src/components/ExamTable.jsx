@@ -17,7 +17,7 @@ function ExamTable() {
   const [error ,setError] = useState('');
 
   useEffect( () => {
-    axios.get('http://localhost:9000/api/getall')
+    axios.get('https://doctorhelpbackend.onrender.com/api/getall')
     .then((response) => {
       const result = response.data;
       setPatients(result);

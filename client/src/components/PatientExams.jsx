@@ -53,12 +53,12 @@ const PatientExams = (props) => {
                 return (
                   <TableRow key={index}>
                     <TableCell component="th" scope="row">
-                      <Link to={`http://localhost:3000/patientexam/${exam.PatientId}`}>
+                      <Link to={`https://doctorhelp.onrender.com/patientexam/${exam.PatientId}`}>
                         {exam.PatientId}
                       </Link>
                     </TableCell>
                     <TableCell align="left">
-                      <Link to={`http://localhost:3000/details/${exam._id}`}>
+                      <Link to={`https://doctorhelp.onrender.com/details/${exam._id}`}>
                         {exam.ExamID}
                       </Link>
                     </TableCell>

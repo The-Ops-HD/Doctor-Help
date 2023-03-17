@@ -86,12 +86,12 @@ function ExamTable() {
               return (
                 <TableRow key={index}>
                   <TableCell component="th" scope="row">
-                    <Link to={`http://localhost:3000/patientexam/${patient.PatientId}`}>
+                    <Link to={`https://doctorhelp.onrender.com/patientexam/${patient.PatientId}`}>
                       {patient.PatientId}
                     </Link>
                   </TableCell>
                   <TableCell align="left">
-                    <Link to={`http://localhost:3000/details/${patient._id}`}>
+                    <Link to={`https://doctorhelp.onrender.com/details/${patient._id}`}>
                       {patient.ExamID}
                     </Link>
                   </TableCell>
